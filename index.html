@@ -168,8 +168,8 @@ html[lang=fa] .card p{font-weight:500}
 .card .more::after{content:'→'}
 html[dir=rtl] .card .more::after{content:'←'}
 .b1{background:linear-gradient(160deg,rgba(124,58,237,.25),rgba(29,78,216,.12) 60%,rgba(255,255,255,.02))}
-.b1 .char{position:absolute;bottom:0;inset-inline-end:4%;height:94%;width:auto;max-width:44%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
-.b1 .inner{max-width:58%}
+.b1 .char{position:absolute;bottom:0;inset-inline-end:3%;height:84%;width:auto;max-width:42%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.b1 .inner{max-width:54%}
 .b1 h3{font-size:clamp(26px,3vw,38px)}
 .mini{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .mini span{font-size:13px;font-weight:800;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
@@ -295,6 +295,20 @@ html[lang=fa] .item .cap small{font-size:13px}
 .feature .play{z-index:1}
 .feature .play span{width:84px;height:84px}
 .lb .box.wide{height:auto;width:min(92vw,1280px);aspect-ratio:16/9}
+/* ---------- characters ---------- */
+.mini-ch{position:absolute;bottom:0;inset-inline-end:8px;height:78%;width:auto;z-index:-1;opacity:.95;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6));transition:transform .5s}
+.card:hover .mini-ch{transform:translateY(-6px) rotate(-2deg)}
+.b2 .ico,.b2 h3,.b2 p,.b2 .more{max-width:64%}
+.free{position:relative;overflow:hidden}
+.free .mini-ch.fold{height:72%;inset-inline-end:-10px;opacity:.9}
+.free h3,.free p{max-width:70%}
+.tg-ch{height:250px;width:auto;margin:-90px 0 -40px;filter:drop-shadow(0 20px 40px rgba(56,189,248,.5))}
+.has-side .center{position:relative}
+.side-ch{position:absolute;top:-30px;inset-inline-start:2%;height:300px;width:auto;filter:drop-shadow(0 20px 40px rgba(139,92,246,.55));animation:bob 6s ease-in-out infinite}
+.picw{position:relative}
+.pic-ch{position:absolute;bottom:-30px;inset-inline-end:-40px;height:62%;width:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.7))}
+.think{height:150px;width:auto;margin:0 auto 14px;filter:drop-shadow(0 10px 30px rgba(139,92,246,.5))}
+.point{height:240px;width:auto;margin:16px auto -10px;filter:drop-shadow(0 10px 30px rgba(139,92,246,.6))}
 /* ---------- faq ---------- */
 .faq{max-width:860px;margin:44px auto 0;display:grid;gap:12px}
 .faq details{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:0 24px;transition:border-color .3s}
@@ -310,7 +324,7 @@ html[lang=fa] .faq summary{font-size:19px}
 .cta-box{position:relative;border-radius:36px;padding:80px 40px;text-align:center;overflow:hidden;border:1px solid var(--line2);background:radial-gradient(ellipse at 20% 0%,rgba(139,92,246,.45),transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(37,99,235,.45),transparent 60%),var(--bg2)}
 .cta-box h2{font-size:clamp(34px,5.4vw,66px)}
 .cta-box .avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 20px;border:3px solid #a78bfa;box-shadow:0 0 50px rgba(139,92,246,.8)}
-.socials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;text-align:start}
+.socials{display:grid;grid-template-columns:repeat(2,1fr);max-width:760px;margin-inline:auto;gap:14px;margin-top:40px;text-align:start}
 .socials a{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.05);transition:.25s}
 .socials a:hover{border-color:var(--line2);transform:translateY(-3px);background:rgba(139,92,246,.14)}
 .socials svg{width:28px;height:28px;flex:none}
@@ -351,6 +365,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .occ{grid-template-columns:1fr 1fr}
   .gallery{grid-template-columns:repeat(3,1fr)}
   .socials{grid-template-columns:1fr}
+  .side-ch{position:relative;top:0;inset:auto;height:200px;margin:0 auto 10px}
+  .pic-ch{height:48%;inset-inline-end:-10px;bottom:-20px}
+  .tg-ch{margin:-80px 0 0;height:210px}
   .tgb{grid-template-columns:1fr;text-align:center;justify-items:center}
   .feature{aspect-ratio:4/5}
   .feature video,.feature img{object-position:center}
@@ -366,6 +383,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .b1 .inner{max-width:100%}
   .b1 .char{position:relative;width:62%;margin:20px auto -40px;inset:auto}
   .b1{padding-bottom:0!important}
+  .b2 .ico,.b2 h3,.b2 p,.b2 .more{max-width:66%}
+  .mini-ch{height:70%}
   .chip.c1{inset-inline-start:-6%}
   .chip.c2{inset-inline-end:-6%}
   .tile{width:130px}
@@ -423,7 +442,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="ctas rv d3">
         <a href="#contact" class="btn btn-p"><span data-t="cta_order"></span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="#academy" class="btn btn-g" data-t="cta_learn"></a>
-        <a href="https://t.me/elaahenazari" target="_blank" rel="noopener" class="btn btn-tg"><svg viewBox="0 0 24 24"><path d="M21.5 4.3L2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.3.8 1.3 1 1.9.4l2.6-2.4 4.7 3.5c.8.6 1.9.1 2.1-.8L23 5.6c.3-1.1-.6-1.8-1.5-1.3z"/></svg><span data-t="cta_tg"></span></a>
+        <a href="https://t.me/double_click70" target="_blank" rel="noopener" class="btn btn-tg"><svg viewBox="0 0 24 24"><path d="M21.5 4.3L2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.3.8 1.3 1 1.9.4l2.6-2.4 4.7 3.5c.8.6 1.9.1 2.1-.8L23 5.6c.3-1.1-.6-1.8-1.5-1.3z"/></svg><span data-t="cta_tg"></span></a>
       </div>
       <div class="trust rv d3">
         <div class="dots" id="dots"></div>
@@ -483,9 +502,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <div class="mini"><span>FA</span><span>TJ</span><span>EN</span><span data-t="sv1_m1"></span><span data-t="sv1_m2"></span></div>
           <span class="more"><span data-t="more"></span></span>
         </div>
-        <img class="char" src="assets/img/char_pose.webp" alt="" loading="lazy">
+        <img class="char" src="assets/img/ch_sit_laptop.webp" alt="" loading="lazy">
       </a>
       <a href="#ads" class="card b2 rv d1">
+        <img class="mini-ch" src="assets/img/ch_camera.webp" alt="" loading="lazy">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8v18L3 13v-2z"/><path d="M7 13v5a2 2 0 004 0v-3"/></svg></div>
         <h3 data-t="sv2_t"></h3><p data-t="sv2_p"></p>
         <span class="more"><span data-t="more"></span></span>
@@ -523,7 +543,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg><span data-t="fm3"></span></div>
         </div>
       </div>
-      <div class="ac-char rv d2"><img src="assets/img/char_front.webp" alt="" loading="lazy"></div>
+      <div class="ac-char rv d2"><img src="assets/img/anim_key.webp" alt="" loading="lazy"></div>
     </div>
 
     <div class="plans">
@@ -560,6 +580,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="phone rv" data-v="kelid-site"><div class="scr"><img src="assets/video/kelid-site.webp" alt="" loading="lazy"><div class="play"><span><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span></div></div></div>
       <div class="phone rv d1" data-v="gemini-omni"><div class="scr"><img src="assets/video/gemini-omni.webp" alt="" loading="lazy"><div class="play"><span><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span></div></div></div>
       <div class="card free rv d2">
+        <img class="mini-ch fold" src="assets/img/ch_folder.webp" alt="" loading="lazy">
         <div class="eyebrow" data-t="free_eyebrow"></div>
         <h3 style="margin-top:16px" data-t="free_t"></h3>
         <p data-t="free_p"></p>
@@ -567,9 +588,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       </div>
     </div>
     <div class="tgb rv" id="telegram">
-      <div class="tgi"><svg viewBox="0 0 24 24"><path d="M21.5 4.3L2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.3.8 1.3 1 1.9.4l2.6-2.4 4.7 3.5c.8.6 1.9.1 2.1-.8L23 5.6c.3-1.1-.6-1.8-1.5-1.3zM9.6 14.6l-.4 3.6-1.3-4.3 10.3-7-8.6 7.7z"/></svg></div>
+      <img class="tg-ch" src="assets/img/ch_phone.webp" alt="" loading="lazy">
       <div><div class="eyebrow" data-t="tl_eyebrow"></div><h3 data-t="tl_t"></h3><p data-t="tl_p"></p></div>
-      <a href="https://t.me/elaahenazari" target="_blank" rel="noopener" class="btn btn-tg" data-t="tl_btn"></a>
+      <a href="https://t.me/double_click70" target="_blank" rel="noopener" class="btn btn-tg" data-t="tl_btn"></a>
     </div>
   </div>
 </section>
@@ -604,9 +625,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 </section>
 
 <!-- PERSONAL -->
-<section id="personal">
+<section id="personal" class="has-side">
   <div class="wrap">
     <div class="center">
+      <img class="side-ch rv" src="assets/img/ch_film.webp" alt="" loading="lazy">
       <div class="eyebrow rv" data-t="pe_eyebrow"></div>
       <h2 class="rv d1" data-t="pe_title"></h2>
       <p class="lead rv d2" data-t="pe_lead"></p>
@@ -641,7 +663,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <!-- ABOUT -->
 <section id="about" class="about">
   <div class="wrap">
-    <div class="pic rv"><img src="assets/img/profile.webp" alt="Elaheh Nazari" loading="lazy"></div>
+    <div class="picw rv"><div class="pic"><img src="assets/img/profile.webp" alt="Elaheh Nazari" loading="lazy"></div><img class="pic-ch" src="assets/img/ch_laptop.webp" alt="" loading="lazy"></div>
     <div>
       <div class="eyebrow rv" data-t="ab_eyebrow"></div>
       <h2 class="rv d1" data-t="ab_title"></h2>
@@ -658,6 +680,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <section id="faq" style="padding-top:40px">
   <div class="wrap">
     <div class="center">
+      <img class="think rv" src="assets/img/ch_think.webp" alt="" loading="lazy">
       <div class="eyebrow rv" data-t="fq_eyebrow"></div>
       <h2 class="rv d1" data-t="fq_title"></h2>
     </div>
@@ -672,14 +695,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <img class="avatar" src="assets/img/avatar.webp" alt="">
       <h2 data-t="ct_title"></h2>
       <p class="lead" style="margin-inline:auto" data-t="ct_lead"></p>
+      <img class="point" src="assets/img/anim_point.webp" alt="" loading="lazy">
       <div class="socials">
         <a href="https://instagram.com/double_click70" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f59e0b"/><stop offset=".5" stop-color="#ec4899"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#ec4899"/></svg>
           <div><b data-t="so1"></b><small>@double_click70</small></div>
         </a>
-        <a href="https://t.me/elaahenazari" target="_blank" rel="noopener">
+        <a href="https://t.me/double_click70" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="#38bdf8"><path d="M21.5 4.3L2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.3.8 1.3 1 1.9.4l2.6-2.4 4.7 3.5c.8.6 1.9.1 2.1-.8L23 5.6c.3-1.1-.6-1.8-1.5-1.3zM9.6 14.6l-.4 3.6-1.3-4.3 10.3-7-8.6 7.7z"/></svg>
-          <div><b data-t="so2"></b><small>t.me/elaahenazari</small></div>
+          <div><b data-t="so2"></b><small>t.me/double_click70</small></div>
+        </a>
+        <a href="https://t.me/elaahenazari" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg>
+          <div><b data-t="so4"></b><small>t.me/elaahenazari</small></div>
         </a>
         <a href="https://instagram.com/ai.learning70" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
@@ -742,6 +770,7 @@ const V=[
 const MODELS=['Google Flow','Veo','Seedance','Kling','Wan','Higgsfield','Sora','Runway','Hailuo','Midjourney','Nano Banana','GPT Image','Flux','Stable Diffusion','ComfyUI','ElevenLabs','Suno','Dola'];
 const T={
 fa:{
+ so4:'پیام مستقیم در تلگرام',
  cta_tg:'پرامپت رایگان در تلگرام',
  md_eyebrow:'ابزارها',md_title:'با <span class="grad">همه‌ی مدل‌های</span> هوش مصنوعی کار می‌کنم',md_lead:'برای هر ایده، ابزاری را انتخاب می‌کنم که بهترین نتیجه را بدهد؛ از ویدیو و عکس تا صدا، موسیقی و موشن. هر مدل جدیدی هم که بیاید، زود یادش می‌گیرم و به تو هم یاد می‌دهم.',
  price_b:'مناسب‌ترین قیمت',price_s:'بهترین قیمتی که می‌توانی هوش مصنوعی را از صفر تا صد یاد بگیری. برای اطلاع از قیمت پیام بده یا تماس بگیر.',
@@ -805,6 +834,7 @@ fa:{
  ft:'ساخته‌شده با عشق و هوش مصنوعی'
 },
 en:{
+ so4:'Message me on Telegram',
  cta_tg:'Free prompts on Telegram',
  md_eyebrow:'Tools',md_title:'I work with <span class="grad">every major AI model</span>',md_lead:'For each idea I pick the tool that gives the best result — video, images, voice, music and motion. When a new model comes out, I learn it fast and teach it to you.',
  price_b:'Best value',price_s:'The most affordable way to learn AI from zero to 100. Message or call me for the price.',
@@ -868,6 +898,7 @@ en:{
  ft:'Made with love and AI'
 },
 ru:{
+ so4:'Написать в Telegram',
  cta_tg:'Бесплатные промпты в Telegram',
  md_eyebrow:'Инструменты',md_title:'Работаю со <span class="grad">всеми AI-моделями</span>',md_lead:'Для каждой идеи выбираю инструмент с лучшим результатом — видео, фото, голос, музыка и моушн. Выходит новая модель — быстро осваиваю её и учу вас.',
  price_b:'Лучшая цена',price_s:'Самый доступный способ освоить AI с нуля до профи. Напишите или позвоните, чтобы узнать цену.',
