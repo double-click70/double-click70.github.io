@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elaheh Nazari — AI Artist & Video Creator</title>
+<meta name="description" content="Elaheh Nazari (Double Click) — AI artist, video creator and AI video educator. Product ads, personal & wedding clips, and AI video courses in Persian, Tajik and English.">
+<meta name="theme-color" content="#07060f">
+<meta property="og:title" content="Elaheh Nazari — AI Artist & Video Creator">
+<meta property="og:description" content="Cinematic AI films, product ads and AI video courses.">
+<meta property="og:image" content="https://double-click70.github.io/assets/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/avatar.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07060f; --bg2:#0d0b1d; --card:rgba(255,255,255,.035); --card2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.09); --line2:rgba(167,139,250,.35);
+  --tx:#f4f2ff; --mut:#a7a3c2; --dim:#6f6b8c;
+  --vi:#8b5cf6; --bl:#3b82f6; --cy:#22d3ee; --pk:#e879f9;
+  --grad:linear-gradient(100deg,#c084fc 0%,#818cf8 35%,#38bdf8 70%,#22d3ee 100%);
+  --r:22px; --rs:14px;
+  --fd:'Unbounded','Vazirmatn',system-ui,sans-serif;
+  --fb:'Manrope','Vazirmatn',system-ui,sans-serif;
+}
+html[lang=fa]{--fd:'Vazirmatn',system-ui,sans-serif;--fb:'Vazirmatn',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:17px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html[lang=fa] body{font-size:18px;line-height:1.95}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:#8b5cf6;color:#fff}
+
+/* ---------- background ---------- */
+.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:float 22s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:55vw;height:55vw;background:#6d28d9;top:-18vw;left:-12vw}
+.aurora i:nth-child(2){width:50vw;height:50vw;background:#1d4ed8;top:20vh;right:-18vw;animation-duration:26s}
+.aurora i:nth-child(3){width:40vw;height:40vw;background:#a21caf;bottom:-20vw;left:20vw;opacity:.35;animation-duration:30s}
+@keyframes float{to{transform:translate3d(6vw,8vh,0) scale(1.15)}}
+.grid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(167,139,250,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,.06) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%)}
+.noise{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- layout ---------- */
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+section{padding:110px 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c4b5fd;padding:7px 14px;border:1px solid var(--line2);border-radius:99px;background:rgba(139,92,246,.08)}
+html[lang=fa] .eyebrow{letter-spacing:0;font-size:15px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cy);box-shadow:0 0 12px var(--cy)}
+h1,h2,h3{font-family:var(--fd);line-height:1.15;letter-spacing:-.02em}
+html[lang=fa] h1,html[lang=fa] h2,html[lang=fa] h3{letter-spacing:0;line-height:1.45;font-weight:900}
+h2{font-size:clamp(32px,5vw,58px);font-weight:800;margin:18px 0 18px}
+h3{font-size:22px;font-weight:700}
+html[lang=fa] h3{font-weight:800;font-size:24px}
+.lead{color:var(--mut);font-size:clamp(17px,1.6vw,20px);max-width:720px}
+html[lang=fa] .lead{font-weight:500}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:14px;inset-inline:0;z-index:50}
+.nav .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 18px;border:1px solid var(--line);border-radius:99px;background:rgba(10,8,24,.62);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
+html[dir=rtl] .nav .bar{padding:10px 18px 10px 12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;white-space:nowrap}
+.brand img{width:34px;height:34px;border-radius:50%;border:2px solid #8b5cf6}
+.brand b{font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:-.01em}
+.links{display:flex;gap:4px}
+.links a{padding:8px 14px;border-radius:99px;font-size:15px;font-weight:700;color:var(--mut);transition:.25s}
+.links a:hover{color:#fff;background:var(--card2)}
+.navr{display:flex;align-items:center;gap:8px}
+.lang{display:flex;padding:3px;border:1px solid var(--line);border-radius:99px;background:rgba(255,255,255,.03)}
+.lang button{padding:6px 11px;border-radius:99px;font-size:13px;font-weight:800;color:var(--mut);font-family:'Manrope',sans-serif;transition:.25s}
+.lang button.on{background:var(--grad);color:#0b0820}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:99px;font-weight:800;font-size:16px;transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}
+html[lang=fa] .btn{font-size:17px}
+.btn-p{background:var(--grad);color:#0a0720;box-shadow:0 10px 40px -10px rgba(139,92,246,.8),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 18px 50px -10px rgba(56,189,248,.8)}
+.btn-g{border:1px solid var(--line);background:rgba(255,255,255,.04);backdrop-filter:blur(10px)}
+.btn-g:hover{border-color:var(--line2);background:rgba(139,92,246,.12)}
+.btn-s{padding:10px 18px;font-size:14px}
+.btn svg{width:18px;height:18px}
+html[dir=rtl] .btn .arr{transform:scaleX(-1)}
+.menu-t{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);align-items:center;justify-content:center}
+
+/* ---------- hero ---------- */
+.hero{padding:150px 0 60px;min-height:100vh;display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(40px,6.4vw,84px);font-weight:800;margin:22px 0 22px}
+html[lang=fa] .hero h1{font-size:clamp(40px,6vw,76px)}
+html[lang=ru] .hero h1{font-size:clamp(28px,5.2vw,68px)}
+@media(max-width:640px){html[lang=ru] .hero h1{font-size:8.2vw}html[lang=ru] h2{font-size:clamp(26px,7.4vw,40px)}}
+h1,h2{overflow-wrap:break-word}
+html[lang=ru] h1,html[lang=ru] h2{hyphens:auto}
+.hero .lead{margin-bottom:34px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.trust{display:flex;align-items:center;gap:14px;margin-top:34px;color:var(--mut);font-size:15px;font-weight:600}
+.trust .dots{display:flex}
+.trust .dots span{width:34px;height:34px;border-radius:50%;border:2px solid var(--bg);background-size:cover;background-position:center;margin-inline-start:-10px}
+.trust .dots span:first-child{margin-inline-start:0}
+.portrait{position:relative;justify-self:center;width:min(440px,100%)}
+.portrait .ring{position:absolute;inset:-2px;border-radius:34px;padding:2px;background:conic-gradient(from var(--a,0deg),#c084fc,#38bdf8,#22d3ee,#e879f9,#c084fc);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 6s linear infinite}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.portrait .ph{border-radius:32px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 120px -30px rgba(139,92,246,.7)}
+.portrait .ph img{width:100%;height:100%;object-fit:cover}
+.portrait .glow{position:absolute;inset:10%;background:#7c3aed;filter:blur(80px);opacity:.5;z-index:-1}
+.chip{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;border-radius:16px;border:1px solid var(--line);background:rgba(14,11,32,.75);backdrop-filter:blur(14px);font-size:14px;font-weight:700;box-shadow:0 20px 40px -20px #000;animation:bob 5s ease-in-out infinite;white-space:nowrap}
+html[dir=rtl] .chip{padding:10px 10px 10px 16px}
+.chip i{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--grad);font-style:normal;font-size:17px}
+.chip small{display:block;color:var(--mut);font-weight:600;font-size:12px;line-height:1.3}
+.chip b{display:block;line-height:1.3}
+.chip.c1{top:8%;inset-inline-start:-14%}
+.chip.c2{bottom:14%;inset-inline-end:-12%;animation-delay:-2.5s}
+.chip.c3{bottom:-4%;inset-inline-start:6%;animation-delay:-1.2s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+
+/* ---------- marquee ---------- */
+.reel{padding:20px 0 40px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:16px;width:max-content;animation:scroll 60s linear infinite}
+.reel:hover .track{animation-play-state:paused}
+.track.rev{animation-direction:reverse;margin-top:16px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.tile{width:170px;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:1px solid var(--line);position:relative;flex:none;cursor:pointer;background:#111}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tile:hover img{transform:scale(1.06)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(0,0,0,.6))}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+.stat{padding:26px 24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.stat b{display:block;font-family:'Unbounded',sans-serif;font-size:clamp(30px,3.4vw,44px);font-weight:800;line-height:1.1}
+.stat span{color:var(--mut);font-weight:600;font-size:15px}
+
+/* ---------- cards ---------- */
+.card{position:relative;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden;isolation:isolate;transition:border-color .3s,transform .3s}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.16),transparent 45%)}
+.card:hover{border-color:var(--line2)}
+.card:hover::before{opacity:1}
+
+/* ---------- about ---------- */
+.about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+.about .pic{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line)}
+.about .pic img{width:100%;height:100%;object-fit:cover}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tags span{padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-size:14px;font-weight:700;color:#d9d4ff}
+
+/* ---------- services bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:50px}
+.bento .card{padding:32px;display:flex;flex-direction:column;min-height:300px}
+.b1{grid-column:span 4;grid-row:span 2}
+.b2{grid-column:span 2}
+.b3{grid-column:span 2}
+.b4{grid-column:span 3}
+.b5{grid-column:span 3}
+.ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(139,92,246,.14);border:1px solid var(--line2);margin-bottom:22px}
+.ico svg{width:26px;height:26px;stroke:#c4b5fd}
+.card p{color:var(--mut);margin-top:10px}
+html[lang=fa] .card p{font-weight:500}
+.card .more{margin-top:auto;padding-top:22px;font-weight:800;color:#c4b5fd;display:inline-flex;gap:8px;align-items:center}
+.card .more::after{content:'→'}
+html[dir=rtl] .card .more::after{content:'←'}
+.b1{background:linear-gradient(160deg,rgba(124,58,237,.25),rgba(29,78,216,.12) 60%,rgba(255,255,255,.02))}
+.b1 .char{position:absolute;bottom:0;inset-inline-end:4%;height:94%;width:auto;max-width:44%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.b1 .inner{max-width:58%}
+.b1 h3{font-size:clamp(26px,3vw,38px)}
+.mini{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.mini span{font-size:13px;font-weight:800;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
+html[lang=fa] .mini span{font-size:14px}
+.badge-hot{position:absolute;top:22px;inset-inline-end:22px;font-size:12px;font-weight:800;padding:6px 12px;border-radius:99px;background:var(--grad);color:#0a0720}
+
+/* ---------- academy ---------- */
+.academy{background:linear-gradient(180deg,transparent,rgba(76,29,149,.18) 30%,rgba(30,58,138,.12) 70%,transparent)}
+.ac-head{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+.ac-char{position:relative;justify-self:center}
+.ac-char img{height:440px;width:auto;filter:drop-shadow(0 30px 60px rgba(124,58,237,.55))}
+.ac-char::before{content:"";position:absolute;bottom:0;left:50%;width:90%;height:40px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(139,92,246,.7),transparent);filter:blur(10px)}
+.formats{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.formats div{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:16px;border:1px solid var(--line);background:var(--card);font-weight:700;font-size:15px}
+.formats svg{width:20px;height:20px;stroke:var(--cy)}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:50px}
+.plan{padding:36px}
+.plan.pro{border-color:transparent;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,var(--grad) border-box;border:1.5px solid transparent;box-shadow:0 30px 90px -40px rgba(139,92,246,.9)}
+.plan .lvl{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cy)}
+html[lang=fa] .plan .lvl{letter-spacing:0;font-size:15px}
+.plan h3{font-size:clamp(24px,2.6vw,32px);margin:10px 0 6px}
+.price{display:flex;align-items:baseline;gap:8px;margin:18px 0 6px}
+.price b{font-family:'Unbounded',sans-serif;font-size:46px;font-weight:800}
+.price span{color:var(--mut);font-weight:700}
+.list{list-style:none;margin:22px 0 28px;display:grid;gap:12px}
+.list li{display:flex;gap:12px;align-items:flex-start;font-weight:600}
+html[lang=fa] .list li{font-weight:600}
+.list li::before{content:"";flex:none;width:22px;height:22px;margin-top:4px;border-radius:50%;background:rgba(34,211,238,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322d3ee' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/13px no-repeat}
+.plan .btn{width:100%}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+.step{padding:26px}
+.step .n{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:800;color:#0a0720;width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--grad);margin-bottom:16px}
+.step h3{font-size:19px}
+html[lang=fa] .step h3{font-size:20px}
+.step p{font-size:15px}
+.lessons{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:18px;margin-top:22px;align-items:center}
+.phone{position:relative;border-radius:34px;padding:8px;background:linear-gradient(160deg,#2a2550,#0e0c20);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(124,58,237,.8);cursor:pointer}
+.phone .scr{border-radius:27px;overflow:hidden;aspect-ratio:9/16;background:#000;position:relative}
+.phone video,.phone img{width:100%;height:100%;object-fit:cover}
+.play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.play span{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);transition:.3s}
+.play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.phone:hover .play span,.item:hover .play span{transform:scale(1.12);background:rgba(139,92,246,.6)}
+.free{padding:34px}
+.free h3{font-size:clamp(22px,2.4vw,30px)}
+
+/* ---------- ads ---------- */
+.ads-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:20px}
+.promise{display:grid;gap:14px;margin-top:30px}
+.promise .card{padding:22px 24px;display:flex;gap:18px;align-items:flex-start}
+.promise .ico{margin:0;flex:none;width:46px;height:46px}
+.promise h3{font-size:18px}
+html[lang=fa] .promise h3{font-size:20px}
+.promise p{margin-top:4px;font-size:15px}
+.stack{position:relative;height:620px}
+.stack .v{position:absolute;width:52%;aspect-ratio:9/16;border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px -30px #000;cursor:pointer;background:#111}
+.stack .v video,.stack .v img{width:100%;height:100%;object-fit:cover}
+.stack .v:nth-child(1){inset-inline-start:0;top:40px;transform:rotate(-5deg);z-index:1}
+.stack .v:nth-child(2){left:24%;top:0;z-index:3;box-shadow:0 40px 100px -20px rgba(139,92,246,.7)}
+.stack .v:nth-child(3){inset-inline-end:0;top:60px;transform:rotate(5deg);z-index:2}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card)}
+.flow div{padding:28px 24px;border-inline-end:1px solid var(--line)}
+.flow div:last-child{border:0}
+.flow b{font-family:'Unbounded',sans-serif;font-size:13px;color:var(--cy)}
+.flow h3{font-size:18px;margin:8px 0 4px}
+html[lang=fa] .flow h3{font-size:20px}
+.flow p{color:var(--mut);font-size:15px}
+
+/* ---------- personal ---------- */
+.occ{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
+.occ .card{padding:0;min-height:380px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer}
+.occ .card video,.occ .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s}
+.occ .card:hover video,.occ .card:hover img{transform:scale(1.05)}
+.occ .card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(7,6,15,.92))}
+.occ .txt{padding:26px}
+.occ h3{font-size:22px}
+.occ p{color:#cfcae8;margin-top:6px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
+.chips span{padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:700}
+
+/* ---------- portfolio ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:34px 0 34px}
+.filters button{padding:10px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:800;font-size:15px;color:var(--mut);transition:.25s}
+.filters button.on{background:var(--grad);color:#0a0720;border-color:transparent}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.item{border-radius:20px;overflow:hidden;position:relative;border:1px solid var(--line);cursor:pointer;background:#111;transition:opacity .4s,transform .4s}
+.item.hide{display:none}
+.item video,.item img{width:100%;aspect-ratio:9/16;object-fit:cover}
+.item .cap{position:absolute;inset:auto 0 0 0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(5,4,12,.9));font-weight:800;font-size:15px}
+.item .cap small{display:block;color:#c4b5fd;font-weight:700;font-size:12px}
+html[lang=fa] .item .cap small{font-size:13px}
+.item .play{opacity:0;transition:.3s}
+.item:hover .play{opacity:1}
+
+/* ---------- faq ---------- */
+.faq{max-width:860px;margin:44px auto 0;display:grid;gap:12px}
+.faq details{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:0 24px;transition:border-color .3s}
+.faq details[open]{border-color:var(--line2);background:rgba(139,92,246,.06)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 0;font-weight:800;font-size:18px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+html[lang=fa] .faq summary{font-size:19px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:26px;font-weight:400;color:#c4b5fd;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--mut);padding-bottom:22px}
+
+/* ---------- contact ---------- */
+.cta-box{position:relative;border-radius:36px;padding:80px 40px;text-align:center;overflow:hidden;border:1px solid var(--line2);background:radial-gradient(ellipse at 20% 0%,rgba(139,92,246,.45),transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(37,99,235,.45),transparent 60%),var(--bg2)}
+.cta-box h2{font-size:clamp(34px,5.4vw,66px)}
+.cta-box .avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 20px;border:3px solid #a78bfa;box-shadow:0 0 50px rgba(139,92,246,.8)}
+.socials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;text-align:start}
+.socials a{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.05);transition:.25s}
+.socials a:hover{border-color:var(--line2);transform:translateY(-3px);background:rgba(139,92,246,.14)}
+.socials svg{width:28px;height:28px;flex:none}
+.socials b{display:block;font-size:16px;line-height:1.3}
+.socials small{color:var(--mut);font-weight:600;font-size:14px;direction:ltr;display:block;text-align:start}
+html[dir=rtl] .socials small{text-align:right}
+footer{padding:40px 0 50px;color:var(--dim);font-size:14px;font-weight:600}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:30px}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(4,3,10,.88);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb .box{position:relative;height:min(88vh,900px);aspect-ratio:9/16;max-width:100%;border-radius:24px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 0 120px -20px rgba(139,92,246,.8);background:#000}
+.lb video{width:100%;height:100%;object-fit:contain;background:#000}
+.lb .x{position:absolute;top:18px;inset-inline-end:18px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid var(--line);font-size:24px;z-index:2}
+.lb .t{position:absolute;bottom:22px;inset-inline:0;text-align:center;font-weight:800;font-size:17px;pointer-events:none}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1020px){
+  .links{display:none}
+  .hero .wrap,.about .wrap,.ads-grid,.ac-head{grid-template-columns:1fr}
+  .hero{padding-top:130px;min-height:auto}
+  .portrait{width:min(380px,86%);margin-top:20px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .bento{grid-template-columns:1fr 1fr}
+  .b1,.b2,.b3,.b4,.b5{grid-column:span 2;grid-row:auto}
+  .steps,.flow{grid-template-columns:1fr 1fr}
+  .flow div:nth-child(2){border-inline-end:0}
+  .flow div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .lessons{grid-template-columns:1fr 1fr}
+  .lessons .free{grid-column:span 2}
+  .occ{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .socials{grid-template-columns:1fr}
+  .ac-char img{height:360px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  html[lang=fa] body{font-size:17px}
+  section{padding:80px 0}
+  .wrap{width:calc(100% - 28px)}
+  .brand span{display:none}
+  .plans{grid-template-columns:1fr}
+  .b1 .inner{max-width:100%}
+  .b1 .char{position:relative;width:62%;margin:20px auto -40px;inset:auto}
+  .b1{padding-bottom:0!important}
+  .chip.c1{inset-inline-start:-6%}
+  .chip.c2{inset-inline-end:-6%}
+  .tile{width:130px}
+  .stack{height:470px}
+  .occ{grid-template-columns:1fr}
+  .occ .card{min-height:440px}
+  .steps,.flow{grid-template-columns:1fr}
+  .flow div{border-inline-end:0!important;border-bottom:1px solid var(--line)}
+  .gallery{grid-template-columns:1fr 1fr;gap:10px}
+  .item{border-radius:16px}
+  .btn{white-space:normal;text-align:center}
+  .trust{font-size:14px}
+  .item .cap{font-size:13px;padding:30px 10px 10px}
+  .cta-box{padding:60px 20px}
+  .btn{padding:14px 22px}
+  .ctas .btn{flex:1}
+  .lang button{padding:6px 9px}
+}
+</style>
+</head>
+<body>
+<div class="aurora"><i></i><i></i><i></i></div>
+<div class="grid-bg"></div>
+<div class="noise"></div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap bar">
+    <a href="#top" class="brand"><img src="assets/img/avatar.webp" alt=""><span><b>Double Click</b></span></a>
+    <nav class="links">
+      <a href="#academy" data-t="nav_academy"></a>
+      <a href="#ads" data-t="nav_ads"></a>
+      <a href="#personal" data-t="nav_personal"></a>
+      <a href="#work" data-t="nav_work"></a>
+      <a href="#about" data-t="nav_about"></a>
+    </nav>
+    <div class="navr">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-l="fa">FA</button><button data-l="en">EN</button><button data-l="ru">RU</button>
+      </div>
+      <a href="#contact" class="btn btn-p btn-s" data-t="nav_cta"></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv" data-t="hero_eyebrow"></div>
+      <h1 class="rv d1" data-t="hero_title"></h1>
+      <p class="lead rv d2" data-t="hero_lead"></p>
+      <div class="ctas rv d3">
+        <a href="#contact" class="btn btn-p"><span data-t="cta_order"></span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#academy" class="btn btn-g" data-t="cta_learn"></a>
+      </div>
+      <div class="trust rv d3">
+        <div class="dots" id="dots"></div>
+        <span data-t="hero_trust"></span>
+      </div>
+    </div>
+    <div class="portrait rv d2">
+      <div class="glow"></div>
+      <div class="ph"><img src="assets/img/profile.webp" alt="Elaheh Nazari" width="900" height="1125"></div>
+      <div class="ring"></div>
+      <div class="chip c1"><i>🎬</i><div><b data-t="chip1_b"></b><small data-t="chip1_s"></small></div></div>
+      <div class="chip c2"><i>🎓</i><div><b data-t="chip2_b"></b><small data-t="chip2_s"></small></div></div>
+      <div class="chip c3"><i>✦</i><div><b data-t="chip3_b"></b><small data-t="chip3_s"></small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="reel" dir="ltr">
+  <div class="track" id="trackA"></div>
+  <div class="track rev" id="trackB"></div>
+</div>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat card rv"><b class="grad">12+</b><span data-t="st1"></span></div>
+    <div class="stat card rv d1"><b class="grad">3</b><span data-t="st2"></span></div>
+    <div class="stat card rv d2"><b class="grad">4K</b><span data-t="st3"></span></div>
+    <div class="stat card rv d3"><b class="grad">24/7</b><span data-t="st4"></span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow rv" data-t="sv_eyebrow"></div>
+      <h2 class="rv d1" data-t="sv_title"></h2>
+      <p class="lead rv d2" data-t="sv_lead"></p>
+    </div>
+    <div class="bento">
+      <a href="#academy" class="card b1 rv">
+        <span class="badge-hot" data-t="sv1_badge"></span>
+        <div class="inner">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+          <h3 data-t="sv1_t"></h3>
+          <p data-t="sv1_p"></p>
+          <div class="mini"><span>FA</span><span>TJ</span><span>EN</span><span data-t="sv1_m1"></span><span data-t="sv1_m2"></span></div>
+          <span class="more"><span data-t="more"></span></span>
+        </div>
+        <img class="char" src="assets/img/char_pose.webp" alt="" loading="lazy">
+      </a>
+      <a href="#ads" class="card b2 rv d1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8v18L3 13v-2z"/><path d="M7 13v5a2 2 0 004 0v-3"/></svg></div>
+        <h3 data-t="sv2_t"></h3><p data-t="sv2_p"></p>
+        <span class="more"><span data-t="more"></span></span>
+      </a>
+      <a href="#ads" class="card b3 rv d2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg></div>
+        <h3 data-t="sv3_t"></h3><p data-t="sv3_p"></p>
+        <span class="more"><span data-t="more"></span></span>
+      </a>
+      <a href="#personal" class="card b4 rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.8-8 11-8 11z"/></svg></div>
+        <h3 data-t="sv4_t"></h3><p data-t="sv4_p"></p>
+        <span class="more"><span data-t="more"></span></span>
+      </a>
+      <a href="#contact" class="card b5 rv d1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0014 0M12 17v4M8 21h8"/></svg></div>
+        <h3 data-t="sv5_t"></h3><p data-t="sv5_p"></p>
+        <span class="more"><span data-t="contact_me"></span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMY -->
+<section id="academy" class="academy">
+  <div class="wrap">
+    <div class="ac-head">
+      <div>
+        <div class="eyebrow rv" data-t="ac_eyebrow"></div>
+        <h2 class="rv d1" data-t="ac_title"></h2>
+        <p class="lead rv d2" data-t="ac_lead"></p>
+        <div class="formats rv d3">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span data-t="fm1"></span></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-t="fm2"></span></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg><span data-t="fm3"></span></div>
+        </div>
+      </div>
+      <div class="ac-char rv d2"><img src="assets/img/char_front.webp" alt="" loading="lazy"></div>
+    </div>
+
+    <div class="plans">
+      <div class="card plan rv">
+        <div class="lvl" data-t="p1_lvl"></div>
+        <h3 data-t="p1_t"></h3>
+        <p data-t="p1_p"></p>
+        <div class="price"><b>500</b><span data-t="somoni"></span></div>
+        <ul class="list" data-list="p1_list"></ul>
+        <a href="#contact" class="btn btn-g" data-t="enroll"></a>
+      </div>
+      <div class="card plan pro rv d1">
+        <span class="badge-hot" data-t="p2_badge"></span>
+        <div class="lvl" data-t="p2_lvl"></div>
+        <h3 data-t="p2_t"></h3>
+        <p data-t="p2_p"></p>
+        <div class="price"><b>1000</b><span data-t="somoni"></span></div>
+        <ul class="list" data-list="p2_list"></ul>
+        <a href="#contact" class="btn btn-p" data-t="enroll"></a>
+      </div>
+    </div>
+
+    <div class="center" style="margin-top:90px">
+      <h2 class="rv" style="font-size:clamp(28px,3.6vw,44px)" data-t="how_t"></h2>
+    </div>
+    <div class="steps">
+      <div class="card step rv"><div class="n">01</div><h3 data-t="hs1_t"></h3><p data-t="hs1_p"></p></div>
+      <div class="card step rv d1"><div class="n">02</div><h3 data-t="hs2_t"></h3><p data-t="hs2_p"></p></div>
+      <div class="card step rv d2"><div class="n">03</div><h3 data-t="hs3_t"></h3><p data-t="hs3_p"></p></div>
+      <div class="card step rv d3"><div class="n">04</div><h3 data-t="hs4_t"></h3><p data-t="hs4_p"></p></div>
+    </div>
+
+    <div class="lessons" style="margin-top:70px">
+      <div class="phone rv" data-v="kelid-site"><div class="scr"><img src="assets/video/kelid-site.webp" alt="" loading="lazy"><div class="play"><span><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span></div></div></div>
+      <div class="phone rv d1" data-v="gemini-omni"><div class="scr"><img src="assets/video/gemini-omni.webp" alt="" loading="lazy"><div class="play"><span><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span></div></div></div>
+      <div class="card free rv d2">
+        <div class="eyebrow" data-t="free_eyebrow"></div>
+        <h3 style="margin-top:16px" data-t="free_t"></h3>
+        <p data-t="free_p"></p>
+        <a href="https://instagram.com/ai.learning70" target="_blank" rel="noopener" class="btn btn-p" dir="ltr" style="margin-top:24px">@ai.learning70</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADS -->
+<section id="ads">
+  <div class="wrap">
+    <div class="ads-grid">
+      <div>
+        <div class="eyebrow rv" data-t="ad_eyebrow"></div>
+        <h2 class="rv d1" data-t="ad_title"></h2>
+        <p class="lead rv d2" data-t="ad_lead"></p>
+        <div class="promise">
+          <div class="card rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><div><h3 data-t="pr1_t"></h3><p data-t="pr1_p"></p></div></div>
+          <div class="card rv d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div><div><h3 data-t="pr2_t"></h3><p data-t="pr2_p"></p></div></div>
+          <div class="card rv d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div><div><h3 data-t="pr3_t"></h3><p data-t="pr3_p"></p></div></div>
+        </div>
+      </div>
+      <div class="stack rv d1">
+        <div class="v" data-v="bags-colors"><img src="assets/video/bags-colors.webp" alt="" loading="lazy"></div>
+        <div class="v" data-v="red-bag-tehran"><video src="assets/video/red-bag-tehran.mp4" poster="assets/video/red-bag-tehran.webp" muted loop playsinline preload="none" data-auto></video></div>
+        <div class="v" data-v="orange-bag"><img src="assets/video/orange-bag.webp" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="flow rv">
+      <div><b>01</b><h3 data-t="fl1_t"></h3><p data-t="fl1_p"></p></div>
+      <div><b>02</b><h3 data-t="fl2_t"></h3><p data-t="fl2_p"></p></div>
+      <div><b>03</b><h3 data-t="fl3_t"></h3><p data-t="fl3_p"></p></div>
+      <div><b>04</b><h3 data-t="fl4_t"></h3><p data-t="fl4_p"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL -->
+<section id="personal">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow rv" data-t="pe_eyebrow"></div>
+      <h2 class="rv d1" data-t="pe_title"></h2>
+      <p class="lead rv d2" data-t="pe_lead"></p>
+    </div>
+    <div class="occ">
+      <div class="card rv" data-v="birthday-scorpio"><img src="assets/video/birthday-scorpio.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc1_t"></h3><p data-t="oc1_p"></p></div></div>
+      <div class="card rv d1" data-v="pixar-love"><img src="assets/video/pixar-love.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc2_t"></h3><p data-t="oc2_p"></p></div></div>
+      <div class="card rv d2" data-v="fight-game"><img src="assets/video/fight-game.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc3_t"></h3><p data-t="oc3_p"></p></div></div>
+    </div>
+    <div class="chips rv" data-chips="pe_chips"></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow rv" data-t="wk_eyebrow"></div>
+      <h2 class="rv d1" data-t="wk_title"></h2>
+      <p class="lead rv d2" data-t="wk_lead"></p>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="pic rv"><img src="assets/img/profile.webp" alt="Elaheh Nazari" loading="lazy"></div>
+    <div>
+      <div class="eyebrow rv" data-t="ab_eyebrow"></div>
+      <h2 class="rv d1" data-t="ab_title"></h2>
+      <p class="lead rv d2" data-t="ab_p1"></p>
+      <p class="lead rv d2" style="margin-top:16px" data-t="ab_p2"></p>
+      <div class="tags rv d3">
+        <span>Google Flow</span><span>Seedance</span><span>Wan</span><span>Higgsfield</span><span>Premiere Pro</span><span>Photoshop</span><span data-t="tg1"></span><span data-t="tg2"></span><span data-t="tg3"></span><span data-t="tg4"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:40px">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow rv" data-t="fq_eyebrow"></div>
+      <h2 class="rv d1" data-t="fq_title"></h2>
+    </div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <img class="avatar" src="assets/img/avatar.webp" alt="">
+      <h2 data-t="ct_title"></h2>
+      <p class="lead" style="margin-inline:auto" data-t="ct_lead"></p>
+      <div class="socials">
+        <a href="https://instagram.com/double_click70" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f59e0b"/><stop offset=".5" stop-color="#ec4899"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#ec4899"/></svg>
+          <div><b data-t="so1"></b><small>@double_click70</small></div>
+        </a>
+        <a href="https://t.me/elaahenazari" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#38bdf8"><path d="M21.5 4.3L2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.3.8 1.3 1 1.9.4l2.6-2.4 4.7 3.5c.8.6 1.9.1 2.1-.8L23 5.6c.3-1.1-.6-1.8-1.5-1.3zM9.6 14.6l-.4 3.6-1.3-4.3 10.3-7-8.6 7.7z"/></svg>
+          <div><b data-t="so2"></b><small>t.me/elaahenazari</small></div>
+        </a>
+        <a href="https://instagram.com/ai.learning70" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
+          <div><b data-t="so3"></b><small>@ai.learning70</small></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Elaheh Nazari · Double Click</span>
+    <span data-t="ft"></span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <div class="box"><video id="lbv" controls playsinline></video><div class="t" id="lbt"></div></div>
+  <button class="x" id="lbx" aria-label="Close">×</button>
+</div>
+
+<script>
+const V=[
+ {id:'red-bag-tehran',c:['ads'],t:{fa:'تبلیغ کیف چرم قرمز',en:'Red leather bag ad',ru:'Реклама красной сумки'}},
+ {id:'bags-colors',c:['ads'],t:{fa:'معرفی رنگ‌های کیف',en:'Bag colour lineup',ru:'Цвета сумки'}},
+ {id:'orange-bag',c:['ads'],t:{fa:'پرتقال غلتان، کیف نارنجی',en:'Rolling orange, orange bag',ru:'Апельсин и оранжевая сумка'}},
+ {id:'truck-unboxing',c:['ads','viral'],t:{fa:'تبلیغ وایرال آنباکسینگ',en:'Viral unboxing ad',ru:'Вирусная распаковка'}},
+ {id:'ananda-pixar',c:['ads','anim'],t:{fa:'تبلیغ کارتونی سه‌بعدی',en:'3D cartoon product ad',ru:'3D-мультреклама'}},
+ {id:'maya-pension',c:['ads','anim'],t:{fa:'تبلیغ هالووین پانسیون',en:'Halloween pet-hotel ad',ru:'Хэллоуин-реклама отеля'}},
+ {id:'pom-halloween',c:['ads','viral'],t:{fa:'هالووین پامرانین‌ها',en:'Pomeranian Halloween',ru:'Хэллоуин шпицев'}},
+ {id:'cocoon-logo',c:['ads'],t:{fa:'موشن لوگو پیله',en:'COCOON logo motion',ru:'Моушн логотипа COCOON'}},
+ {id:'birthday-scorpio',c:['personal'],t:{fa:'کلیپ تولد سینمایی',en:'Cinematic birthday',ru:'Кинодень рождения'}},
+ {id:'pixar-love',c:['personal','anim'],t:{fa:'قصه‌ی عاشقانه‌ی کارتونی',en:'Animated love story',ru:'Мульт-история любви'}},
+ {id:'car-couple',c:['personal','anim'],t:{fa:'قصه‌ی طنز زوج',en:'Couple comedy short',ru:'Комедия о паре'}},
+ {id:'fight-game',c:['personal'],t:{fa:'تریلر بازی جنگی',en:'Fighting-game trailer',ru:'Трейлер файтинга'}},
+ {id:'pixar-tired',c:['anim'],t:{fa:'انیمیشن روزمرگی',en:'Everyday-life animation',ru:'Анимация будней'}},
+ {id:'statue-brows',c:['viral'],t:{fa:'میکروبلیدینگ مجسمه',en:'Statue microblading',ru:'Микроблейдинг статуи'}},
+ {id:'statue-facial',c:['viral'],t:{fa:'فیشیال مجسمه‌ی طلایی',en:'Golden statue facial',ru:'Уход за золотой статуей'}},
+ {id:'somoni-statue',c:['viral'],t:{fa:'جان گرفتن مجسمه‌ی سامانی',en:'Somoni statue comes alive',ru:'Оживший памятник Сомони'}},
+ {id:'kelid-site',c:['edu'],t:{fa:'آموزش: طراحی سایت با هوش مصنوعی',en:'Lesson: websites with AI',ru:'Урок: сайты с AI'}},
+ {id:'gemini-omni',c:['edu'],t:{fa:'آموزش: معرفی مدل جدید گوگل',en:'Lesson: Google’s new video model',ru:'Урок: новая видеомодель Google'}}
+];
+const T={
+fa:{
+ nav_academy:'آکادمی',nav_ads:'تبلیغات',nav_personal:'کلیپ شخصی',nav_work:'نمونه‌کار',nav_about:'درباره‌ی من',nav_cta:'سفارش',
+ hero_eyebrow:'هنرمند هوش مصنوعی · سازنده‌ی ویدیو · مدرس',
+ hero_title:'ایده‌ات را به <span class="grad">فیلم سینمایی</span> با هوش مصنوعی تبدیل می‌کنم',
+ hero_lead:'تبلیغ‌هایی که می‌فروشند، قصه‌هایی که به دل می‌نشینند و دوره‌هایی که تو را از صفر به حرفه‌ای می‌رسانند؛ با کارگردانی دقیق جدیدترین ابزارهای ویدیوی هوش مصنوعی.',
+ cta_order:'سفارش کلیپ',cta_learn:'ثبت‌نام در دوره',
+ hero_trust:'بیش از ۱۲ سال تجربه در رسانه و تصویر',
+ chip1_b:'کلیپ تبلیغاتی',chip1_s:'محصولت بدون تغییر',chip2_b:'آموزش از صفر',chip2_s:'آنلاین و حضوری',chip3_b:'تا کیفیت 4K',chip3_s:'عمودی و افقی',
+ st1:'سال تجربه در رسانه',st2:'زبان تدریس: فارسی، تاجیکی، انگلیسی',st3:'خروجی با بالاترین کیفیت',st4:'پاسخ‌گویی در دایرکت و تلگرام',
+ sv_eyebrow:'خدمات',sv_title:'هر چیزی که برای <span class="grad">دیده شدن</span> لازم داری',
+ sv_lead:'از یادگرفتن ساخت ویدیو با هوش مصنوعی تا تبلیغ حرفه‌ای برای برندت و کلیپ‌های خاطره‌انگیز برای عزیزانت.',
+ sv1_badge:'محبوب‌ترین',sv1_t:'آکادمی ویدیوی هوش مصنوعی',sv1_p:'ساخت ویدیو و عکس با هوش مصنوعی را قدم‌به‌قدم و کاملاً عملی یاد بگیر؛ بدون برنامه‌نویسی و بدون تجربه‌ی قبلی.',sv1_m1:'آنلاین',sv1_m2:'حضوری در دوشنبه',
+ sv2_t:'کلیپ تبلیغاتی',sv2_p:'ریلز و ویدیوهای تبلیغاتی سینمایی برای محصول و برندت؛ واقعی، کارتونی سه‌بعدی یا وایرال.',
+ sv3_t:'عکس تبلیغاتی',sv3_p:'عکس محصول با بالاترین کیفیت، بدون اینکه شکل، رنگ یا لوگوی محصولت ذره‌ای تغییر کند.',
+ sv4_t:'کلیپ شخصی و مراسم',sv4_p:'عروس و داماد، فرمالیته، تولد، سالگرد و قصه‌های عاشقانه؛ با چهره‌ی خودتان، دقیق و بدون تغییر.',
+ sv5_t:'ادیت پادکست',sv5_p:'تدوین و تمیزکاری صدای پادکست تا ۳۰ دقیقه، با پکیج‌هایی از اقتصادی تا حرفه‌ای.',
+ more:'بیشتر بدانید',contact_me:'پیام بده',
+ ac_eyebrow:'آکادمی',ac_title:'ساخت ویدیو با <span class="grad">هوش مصنوعی</span> را از صفر یاد بگیر',
+ ac_lead:'قدم‌به‌قدم، کاملاً عملی و به زبان خودت. لازم نیست برنامه‌نویسی بلد باشی؛ فقط خودت، گوشی یا لپ‌تاپت و یک راهنمای دلسوز. آخر دوره، نمونه‌کارهای واقعی خودت را داری.',
+ fm1:'کلاس آنلاین',fm2:'کلاس حضوری در دوشنبه',fm3:'فارسی · تاجیکی · انگلیسی',
+ p1_lvl:'سطح مقدماتی',p1_t:'از صفر تا ساخت کامل',p1_p:'برای کسی که تا حالا با هوش مصنوعی کار نکرده و می‌خواهد اولین ویدیوهای حرفه‌ای‌اش را بسازد.',
+ p1_list:['هوش مصنوعی چیست و کدام ابزار برای چه کاری است','نوشتن پرامپت درست؛ از عکس تا ویدیو','ساخت کاراکتر ثابت از چهره‌ی خودت','تدوین، صدا و خروجی گرفتن برای اینستاگرام','ساخت اولین ریل کامل خودت'],
+ p2_lvl:'سطح حرفه‌ای',p2_badge:'پیشنهاد ویژه',p2_t:'حرفه‌ای و درآمدزا',p2_p:'برای کسی که می‌خواهد سفارش بگیرد، برای برندها تبلیغ بسازد و از این مهارت درآمد داشته باشد.',
+ p2_list:['کار پیشرفته با Google Flow، Seedance، Wan و Higgsfield','تبلیغ محصول بدون تغییر در شکل و لوگوی محصول','حفظ دقیق چهره و کرکتر شیت حرفه‌ای','زبان دوربین سینمایی و قصه‌گویی تصویری','موشن‌گرافیک و صداگذاری با صدای خودت','قیمت‌گذاری کار و پیدا کردن مشتری'],
+ somoni:'سامانی',enroll:'ثبت‌نام و مشاوره',
+ how_t:'کلاس‌ها <span class="grad">چطور</span> پیش می‌رود؟',
+ hs1_t:'پیام بده',hs1_p:'در دایرکت یا تلگرام بگو چه سطحی و چه زبانی می‌خواهی.',
+ hs2_t:'آشنایی و برنامه',hs2_p:'در یک کافه در دوشنبه یا تماس آنلاین، روزهای کلاس را با هم تنظیم می‌کنیم.',
+ hs3_t:'یادگیری با ساختن',hs3_p:'هر جلسه یک پروژه‌ی واقعی می‌سازی، نه فقط تئوری.',
+ hs4_t:'نمونه‌کار شخصی',hs4_p:'با چند ویدیوی حرفه‌ای که خودت ساختی، دوره را تمام می‌کنی.',
+ free_eyebrow:'آموزش رایگان',free_t:'هر هفته آموزش‌های کوتاه در پیج آموزشی',free_p:'ترفندها، معرفی مدل‌های جدید و آموزش‌های قدم‌به‌قدم؛ با کرکتر کارتونی خودم و به زبان ساده. روی ویدیوها بزن و ببین.',
+ ad_eyebrow:'برای برندها',ad_title:'تبلیغی که <span class="grad">لوکس</span> دیده می‌شود؛ محصولت دقیقاً همان می‌ماند',
+ ad_lead:'فقط عکس محصولت را بفرست. من برایش قصه، فضا و حرکت دوربین می‌سازم و یک کلیپ یا عکس تبلیغاتی تحویل می‌دهم که در اسکرول دیده شود.',
+ pr1_t:'محصول بدون تغییر',pr1_p:'شکل، رنگ، جنس، بافت و لوگوی محصولت دقیقاً حفظ می‌شود.',
+ pr2_t:'چهره بدون تغییر',pr2_p:'اگر مدل یا چهره‌ی خودتان در تبلیغ باشد، چهره عوض نمی‌شود.',
+ pr3_t:'هر سبکی که بخواهی',pr3_p:'واقعی و سینمایی، کارتونی سه‌بعدی، وایرال و خلاقانه، یا موشن لوگو.',
+ fl1_t:'ارسال محصول',fl1_p:'چند عکس واضح از محصول و توضیح برند.',
+ fl2_t:'ایده و سناریو',fl2_p:'ایده و قصه‌ی کلیپ را با هم نهایی می‌کنیم.',
+ fl3_t:'ساخت و اصلاح',fl3_p:'ساخت با بهترین ابزارها و اصلاح تا رضایت.',
+ fl4_t:'تحویل',fl4_p:'خروجی عمودی یا افقی، تا کیفیت 4K.',
+ pe_eyebrow:'کلیپ‌های شخصی',pe_title:'خاطره‌هایت را <span class="grad">سینمایی</span> کن',
+ pe_lead:'با چند عکس از خودتان، کلیپی می‌سازم که سال‌ها نگاهش کنید؛ با چهره‌ی واقعی خودتان، دقیق و بدون تغییر.',
+ oc1_t:'تولد',oc1_p:'سورپرایز تولد با فضایی که فقط در رویا ممکن است.',
+ oc2_t:'قصه‌ی عاشقانه',oc2_p:'قصه‌ی آشنایی و زندگی‌تان، به سبک انیمیشن‌های سینمایی.',
+ oc3_t:'قهرمان قصه شو',oc3_p:'خودت یا عزیزت در نقش قهرمان فیلم یا بازی.',
+ pe_chips:['عروس و داماد','فرمالیته','تولد','سالگرد ازدواج','نامزدی','هدیه برای عزیزان','انیمیشن خانوادگی','کلیپ با حیوان خانگی'],
+ wk_eyebrow:'نمونه‌کارها',wk_title:'کارهایی که <span class="grad">خودم</span> ساخته‌ام',wk_lead:'همه‌ی این ویدیوها را خودم ایده‌پردازی، کارگردانی و تدوین کرده‌ام. روی هر کدام بزن تا با صدا ببینی.',
+ f_all:'همه',f_ads:'تبلیغاتی',f_personal:'شخصی',f_anim:'انیمیشن',f_viral:'وایرال و خلاقانه',f_edu:'آموزشی',
+ ab_eyebrow:'درباره‌ی من',ab_title:'سلام، من <span class="grad">الهه نظری</span>‌ام',
+ ab_p1:'مهندس مخابرات هستم و قصه‌گو از ته دل. بازیگری و پرفورمنس خوانده‌ام، فیلم کوتاه کارگردانی کرده‌ام و بیش از ۱۲ سال در تدوین، فیلم‌برداری و عکاسی کار کرده‌ام.',
+ ab_p2:'امروز همه‌ی این تجربه را با هوش مصنوعی ترکیب می‌کنم و تک‌تک فریم‌ها را کارگردانی می‌کنم تا نتیجه واقعی، گرم و هم‌رنگ برند تو باشد. و عاشق این هستم که همین را به دیگران هم یاد بدهم.',
+ tg1:'کارگردانی',tg2:'فیلم‌برداری',tg3:'عکاسی',tg4:'تدریس',
+ fq_eyebrow:'سؤال‌های پرتکرار',fq_title:'قبل از شروع <span class="grad">بپرس</span>',
+ faq:[['برای دوره باید چیزی بلد باشم؟','نه. دوره‌ی مقدماتی از صفر شروع می‌شود. کافی است گوشی یا لپ‌تاپ داشته باشی؛ برنامه‌نویسی یا تجربه‌ی قبلی لازم نیست.'],['کلاس‌ها به چه زبانی است؟','فارسی، تاجیکی و انگلیسی؛ هم آنلاین و هم حضوری در دوشنبه.'],['محصول یا چهره در تبلیغ تغییر می‌کند؟','نه. اصل کار من همین است: شکل، رنگ و لوگوی محصول و چهره‌ی آدم‌ها دقیقاً حفظ می‌شود.'],['ساخت یک کلیپ چقدر طول می‌کشد؟','بستگی به طول و سختی کلیپ دارد. قبل از شروع، زمان تحویل را دقیق با هم مشخص می‌کنیم.'],['از خارج از تاجیکستان هم سفارش می‌گیری؟','بله. با مشتری‌های بین‌المللی هم کار می‌کنم و پرداخت دلاری هم ممکن است.']],
+ ct_title:'بیا با هم یک چیز <span class="grad">زیبا</span> بسازیم',ct_lead:'برای سفارش کلیپ، عکس تبلیغاتی یا ثبت‌نام در دوره، همین حالا پیام بده.',
+ so1:'سفارش در اینستاگرام',so2:'تلگرام و پرامپت‌های اختصاصی',so3:'پیج آموزش هوش مصنوعی',
+ ft:'ساخته‌شده با عشق و هوش مصنوعی'
+},
+en:{
+ nav_academy:'Academy',nav_ads:'Ads',nav_personal:'Personal',nav_work:'Work',nav_about:'About',nav_cta:'Order',
+ hero_eyebrow:'AI Artist · Video Creator · Educator',
+ hero_title:'I turn ideas into <span class="grad">cinematic AI films</span>',
+ hero_lead:'Ads that sell, stories that move, and courses that take you from zero to pro — made by carefully directing the newest AI video tools.',
+ cta_order:'Order a clip',cta_learn:'Join the course',
+ hero_trust:'12+ years in media & visual storytelling',
+ chip1_b:'Product ads',chip1_s:'Your product, unchanged',chip2_b:'Learn from zero',chip2_s:'Online & in person',chip3_b:'Up to 4K',chip3_s:'Vertical & horizontal',
+ st1:'years in media',st2:'teaching languages: Persian, Tajik, English',st3:'highest-quality delivery',st4:'replies on Instagram & Telegram',
+ sv_eyebrow:'Services',sv_title:'Everything you need to <span class="grad">get noticed</span>',
+ sv_lead:'From learning AI video yourself, to premium ads for your brand, to unforgettable clips for the people you love.',
+ sv1_badge:'Most popular',sv1_t:'AI Video Academy',sv1_p:'Learn to create AI videos and images step by step, fully hands-on — no coding and no experience needed.',sv1_m1:'Online',sv1_m2:'In person · Dushanbe',
+ sv2_t:'Video ads',sv2_p:'Cinematic reels and commercials for your product and brand — realistic, 3D cartoon or viral.',
+ sv3_t:'Product photos',sv3_p:'Top-quality ad images without changing a single detail of your product’s shape, colour or logo.',
+ sv4_t:'Personal & event clips',sv4_p:'Weddings, pre-wedding shoots, birthdays, anniversaries and love stories — with your real faces, unchanged.',
+ sv5_t:'Podcast editing',sv5_p:'Editing and audio clean-up for episodes up to 30 minutes, in packages from economy to pro.',
+ more:'Learn more',contact_me:'Message me',
+ ac_eyebrow:'Academy',ac_title:'Learn to make <span class="grad">AI videos</span> from zero',
+ ac_lead:'Step by step, hands-on and in your own language. No coding needed — just you, your phone or laptop and a caring guide. You finish with real portfolio pieces of your own.',
+ fm1:'Online classes',fm2:'In person in Dushanbe',fm3:'Persian · Tajik · English',
+ p1_lvl:'Beginner',p1_t:'From zero to full creation',p1_p:'For anyone who has never used AI and wants to make their first professional videos.',
+ p1_list:['What AI is and which tool to use for what','Writing prompts that work — image to video','Building a consistent character from your own face','Editing, sound and exporting for Instagram','Creating your first complete reel'],
+ p2_lvl:'Professional',p2_badge:'Best value',p2_t:'Pro & income-ready',p2_p:'For those who want to take client orders, make ads for brands and earn from this skill.',
+ p2_list:['Advanced Google Flow, Seedance, Wan and Higgsfield','Product ads without altering the product or logo','Exact face preservation & pro character sheets','Cinematic camera language and visual storytelling','Motion graphics and voice-over with your own voice','Pricing your work and finding clients'],
+ somoni:'somoni',enroll:'Enroll & consult',
+ how_t:'<span class="grad">How</span> the classes work',
+ hs1_t:'Message me',hs1_p:'Tell me your level and preferred language on Instagram or Telegram.',
+ hs2_t:'Meet & plan',hs2_p:'Over coffee in Dushanbe or an online call, we set your class days together.',
+ hs3_t:'Learn by making',hs3_p:'Every session you build a real project — not just theory.',
+ hs4_t:'Your portfolio',hs4_p:'You graduate with professional videos you made yourself.',
+ free_eyebrow:'Free lessons',free_t:'Short weekly lessons on my learning page',free_p:'Tips, new-model breakdowns and step-by-step tutorials — explained simply by my 3D character. Tap the videos to watch.',
+ ad_eyebrow:'For brands',ad_title:'Ads that look <span class="grad">premium</span> — your product stays exactly the same',
+ ad_lead:'Just send photos of your product. I build the story, the world and the camera moves, and deliver a video or photo ad that stops the scroll.',
+ pr1_t:'Product unchanged',pr1_p:'Shape, colour, material, texture and logo are kept exactly as they are.',
+ pr2_t:'Faces unchanged',pr2_p:'If your model or your own face appears, it stays true to life.',
+ pr3_t:'Any style you like',pr3_p:'Realistic & cinematic, 3D cartoon, viral & creative, or logo motion.',
+ fl1_t:'Send your product',fl1_p:'A few clear photos plus a short brand brief.',
+ fl2_t:'Idea & script',fl2_p:'We finalise the concept and story together.',
+ fl3_t:'Create & refine',fl3_p:'Produced with the best tools, revised until you love it.',
+ fl4_t:'Delivery',fl4_p:'Vertical or horizontal, up to 4K.',
+ pe_eyebrow:'Personal clips',pe_title:'Make your memories <span class="grad">cinematic</span>',
+ pe_lead:'From a few photos of you, I create a clip you’ll watch for years — with your real faces, accurate and unchanged.',
+ oc1_t:'Birthdays',oc1_p:'A birthday surprise in a world only dreams allow.',
+ oc2_t:'Love stories',oc2_p:'Your story together, in the style of a feature animation.',
+ oc3_t:'Be the hero',oc3_p:'You or someone you love as the star of a film or game.',
+ pe_chips:['Weddings','Pre-wedding','Birthdays','Anniversaries','Engagements','Gifts for loved ones','Family animation','Clips with pets'],
+ wk_eyebrow:'Portfolio',wk_title:'Work I’ve <span class="grad">created</span>',wk_lead:'Every video here was conceived, directed and edited by me. Tap any one to watch with sound.',
+ f_all:'All',f_ads:'Ads',f_personal:'Personal',f_anim:'Animation',f_viral:'Viral & creative',f_edu:'Lessons',
+ ab_eyebrow:'About',ab_title:'Hi, I’m <span class="grad">Elaheh Nazari</span>',
+ ab_p1:'Telecom engineer by training, storyteller by heart. I studied acting and performance, directed short films, and have spent 12+ years in video editing, cinematography and photography.',
+ ab_p2:'Today I bring all of it together with AI, directing every frame so the result feels real, warm and true to your brand — and I love teaching others to do the same.',
+ tg1:'Directing',tg2:'Cinematography',tg3:'Photography',tg4:'Teaching',
+ fq_eyebrow:'FAQ',fq_title:'Ask <span class="grad">before</span> you start',
+ faq:[['Do I need any experience for the course?','No. The beginner course starts from zero. A phone or laptop is enough — no coding or prior experience required.'],['Which languages are classes in?','Persian, Tajik and English — online or in person in Dushanbe.'],['Will my product or face change in the ad?','No. That is the core of my work: product shape, colour, logo and people’s faces are preserved exactly.'],['How long does a clip take?','It depends on length and complexity. We agree on an exact delivery date before we start.'],['Do you work with clients outside Tajikistan?','Yes. I work with international clients, and payment in US dollars is possible.']],
+ ct_title:'Let’s create something <span class="grad">beautiful</span>',ct_lead:'To order a clip or ad photos, or to join a course, send me a message now.',
+ so1:'Order on Instagram',so2:'Telegram & exclusive prompts',so3:'AI learning page',
+ ft:'Made with love and AI'
+},
+ru:{
+ nav_academy:'Академия',nav_ads:'Реклама',nav_personal:'Личное',nav_work:'Работы',nav_about:'Обо мне',nav_cta:'Заказать',
+ hero_eyebrow:'AI-художник · Видеокреатор · Преподаватель',
+ hero_title:'Превращаю идеи в <span class="grad">кинематографичные AI-фильмы</span>',
+ hero_lead:'Реклама, которая продаёт, истории, которые трогают, и курсы, которые ведут от нуля до профи — с точной режиссурой новейших AI-инструментов для видео.',
+ cta_order:'Заказать ролик',cta_learn:'Записаться на курс',
+ hero_trust:'Более 12 лет в медиа и визуальном сторителлинге',
+ chip1_b:'Реклама товара',chip1_s:'Товар без изменений',chip2_b:'Обучение с нуля',chip2_s:'Онлайн и офлайн',chip3_b:'До 4K',chip3_s:'Вертикально и горизонтально',
+ st1:'лет в медиа',st2:'языка обучения: персидский, таджикский, английский',st3:'максимальное качество',st4:'ответ в Instagram и Telegram',
+ sv_eyebrow:'Услуги',sv_title:'Всё, чтобы вас <span class="grad">заметили</span>',
+ sv_lead:'От обучения AI-видео до премиальной рекламы вашего бренда и незабываемых роликов для близких.',
+ sv1_badge:'Популярное',sv1_t:'Академия AI-видео',sv1_p:'Научитесь создавать видео и фото с AI шаг за шагом и на практике — без программирования и без опыта.',sv1_m1:'Онлайн',sv1_m2:'Офлайн · Душанбе',
+ sv2_t:'Видеореклама',sv2_p:'Кинематографичные рилсы и ролики для вашего товара и бренда — реализм, 3D-мульт или вирусный формат.',
+ sv3_t:'Рекламные фото',sv3_p:'Фото в высшем качестве — без малейших изменений формы, цвета или логотипа вашего товара.',
+ sv4_t:'Личные и праздничные ролики',sv4_p:'Свадьбы, лавстори, дни рождения, годовщины — с вашими настоящими лицами, без изменений.',
+ sv5_t:'Монтаж подкастов',sv5_p:'Монтаж и чистка звука для выпусков до 30 минут — пакеты от эконом до профи.',
+ more:'Подробнее',contact_me:'Написать',
+ ac_eyebrow:'Академия',ac_title:'Научитесь создавать <span class="grad">AI-видео</span> с нуля',
+ ac_lead:'Шаг за шагом, на практике и на вашем языке. Программирование не нужно — только вы, телефон или ноутбук и заботливый наставник. В конце у вас будет собственное портфолио.',
+ fm1:'Онлайн-занятия',fm2:'Офлайн в Душанбе',fm3:'Персидский · Таджикский · Английский',
+ p1_lvl:'Начальный',p1_t:'С нуля до готового ролика',p1_p:'Для тех, кто никогда не работал с AI и хочет создать первые профессиональные видео.',
+ p1_list:['Что такое AI и какой инструмент для чего','Промпты, которые работают: от фото к видео','Постоянный персонаж на основе вашего лица','Монтаж, звук и экспорт для Instagram','Ваш первый готовый рилс'],
+ p2_lvl:'Профессиональный',p2_badge:'Выгодно',p2_t:'Профи и заработок',p2_p:'Для тех, кто хочет брать заказы, делать рекламу для брендов и зарабатывать на этом навыке.',
+ p2_list:['Продвинутые Google Flow, Seedance, Wan и Higgsfield','Реклама без изменения товара и логотипа','Точное сохранение лица и профессиональные character sheets','Кинематографичный язык камеры и сторителлинг','Моушн-графика и озвучка своим голосом','Ценообразование и поиск клиентов'],
+ somoni:'сомони',enroll:'Записаться и узнать',
+ how_t:'<span class="grad">Как</span> проходят занятия',
+ hs1_t:'Напишите мне',hs1_p:'Расскажите в Instagram или Telegram о своём уровне и языке.',
+ hs2_t:'Знакомство и план',hs2_p:'В кафе в Душанбе или онлайн вместе выберем дни занятий.',
+ hs3_t:'Учимся, создавая',hs3_p:'На каждом занятии — реальный проект, а не только теория.',
+ hs4_t:'Ваше портфолио',hs4_p:'Вы заканчиваете курс с профессиональными видео, сделанными своими руками.',
+ free_eyebrow:'Бесплатно',free_t:'Короткие уроки каждую неделю',free_p:'Лайфхаки, обзоры новых моделей и пошаговые уроки — просто и понятно, с моим 3D-персонажем. Нажмите на видео.',
+ ad_eyebrow:'Для брендов',ad_title:'Реклама, которая выглядит <span class="grad">премиально</span>, а товар остаётся прежним',
+ ad_lead:'Просто пришлите фото товара. Я создам историю, атмосферу и движение камеры и сдам видео или фото, которое остановит скролл.',
+ pr1_t:'Товар без изменений',pr1_p:'Форма, цвет, материал, текстура и логотип сохраняются в точности.',
+ pr2_t:'Лица без изменений',pr2_p:'Если в рекламе ваша модель или вы сами — лицо остаётся настоящим.',
+ pr3_t:'Любой стиль',pr3_p:'Реализм и кино, 3D-мульт, вирусные идеи или анимация логотипа.',
+ fl1_t:'Товар',fl1_p:'Несколько чётких фото и короткий бриф о бренде.',
+ fl2_t:'Идея и сценарий',fl2_p:'Вместе утверждаем концепцию и сюжет.',
+ fl3_t:'Создание и правки',fl3_p:'Лучшие инструменты и правки до полного результата.',
+ fl4_t:'Сдача',fl4_p:'Вертикально или горизонтально, до 4K.',
+ pe_eyebrow:'Личные ролики',pe_title:'Сделайте воспоминания <span class="grad">киношными</span>',
+ pe_lead:'По нескольким вашим фото я создам ролик, который вы будете пересматривать годами — с вашими настоящими лицами, точно и без изменений.',
+ oc1_t:'Дни рождения',oc1_p:'Сюрприз в мире, который возможен только во сне.',
+ oc2_t:'История любви',oc2_p:'Ваша история в стиле полнометражной анимации.',
+ oc3_t:'Станьте героем',oc3_p:'Вы или близкий человек — звезда фильма или игры.',
+ pe_chips:['Свадьбы','Лавстори','Дни рождения','Годовщины','Помолвки','Подарки близким','Семейная анимация','Ролики с питомцами'],
+ wk_eyebrow:'Портфолио',wk_title:'Работы, которые я <span class="grad">создала</span>',wk_lead:'Каждое видео здесь придумано, срежиссировано и смонтировано мной. Нажмите, чтобы смотреть со звуком.',
+ f_all:'Все',f_ads:'Реклама',f_personal:'Личное',f_anim:'Анимация',f_viral:'Вирусное',f_edu:'Уроки',
+ ab_eyebrow:'Обо мне',ab_title:'Привет, я <span class="grad">Элахе Назари</span>',
+ ab_p1:'По образованию — инженер связи, по призванию — рассказчица. Я изучала актёрское мастерство, снимала короткометражки и более 12 лет работаю в монтаже, операторской работе и фотографии.',
+ ab_p2:'Сегодня я соединяю этот опыт с AI и режиссирую каждый кадр, чтобы результат был живым, тёплым и в стиле вашего бренда. И я с радостью учу этому других.',
+ tg1:'Режиссура',tg2:'Операторская работа',tg3:'Фотография',tg4:'Преподавание',
+ fq_eyebrow:'Вопросы',fq_title:'Спросите <span class="grad">заранее</span>',
+ faq:[['Нужен ли опыт для курса?','Нет. Начальный курс — с нуля. Достаточно телефона или ноутбука, программирование не нужно.'],['На каких языках занятия?','Персидский, таджикский и английский — онлайн или офлайн в Душанбе.'],['Изменится ли товар или лицо в рекламе?','Нет. В этом суть моей работы: форма, цвет, логотип товара и лица людей сохраняются в точности.'],['Сколько времени занимает ролик?','Зависит от длины и сложности. Точный срок сдачи согласуем до начала работы.'],['Работаете с клиентами из других стран?','Да. Я работаю с международными клиентами, возможна оплата в долларах США.']],
+ ct_title:'Давайте создадим что-то <span class="grad">красивое</span>',ct_lead:'Чтобы заказать ролик или фото либо записаться на курс — напишите мне прямо сейчас.',
+ so1:'Заказ в Instagram',so2:'Telegram и эксклюзивные промпты',so3:'Страница об AI-обучении',
+ ft:'Сделано с любовью и AI'
+}};
+const FILT=['all','ads','personal','anim','viral','edu'];
+let L='fa';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+
+function setLang(l){
+  L=l; const d=T[l];
+  document.documentElement.lang=l; document.documentElement.dir=l==='fa'?'rtl':'ltr';
+  $$('[data-t]').forEach(e=>{const v=d[e.dataset.t]; if(v!=null) e.innerHTML=v});
+  $$('[data-list]').forEach(e=>e.innerHTML=d[e.dataset.list].map(x=>'<li>'+esc(x)+'</li>').join(''));
+  $$('[data-chips]').forEach(e=>e.innerHTML=d[e.dataset.chips].map(x=>'<span>'+esc(x)+'</span>').join(''));
+  $('#faqList').innerHTML=d.faq.map(([q,a],i)=>`<details class="rv in"${i===0?' open':''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+  $('#filters').innerHTML=FILT.map(f=>`<button data-f="${f}" class="${f===cur?'on':''}">${d['f_'+f]}</button>`).join('');
+  $$('#filters button').forEach(b=>b.onclick=()=>filter(b.dataset.f));
+  $$('.item .cap').forEach(c=>{const v=V.find(x=>x.id===c.closest('.item').dataset.v);c.innerHTML=`<small>${d['f_'+v.c[0]]}</small>${esc(v.t[l])}`});
+  $$('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+  try{localStorage.setItem('lang',l)}catch(e){}
+  document.title=l==='fa'?'الهه نظری | هنرمند هوش مصنوعی و سازنده‌ی ویدیو':l==='ru'?'Элахе Назари — AI-художник и видеокреатор':'Elaheh Nazari — AI Artist & Video Creator';
+}
+let cur='all';
+function filter(f){cur=f;$$('#filters button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+  $$('.item').forEach(it=>{const v=V.find(x=>x.id===it.dataset.v);it.classList.toggle('hide',!(f==='all'||v.c.includes(f)))});}
+
+// build gallery & marquee
+const play='<div class="play"><span><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span></div>';
+$('#gallery').innerHTML=V.map(v=>`<div class="item rv" data-v="${v.id}"><video muted loop playsinline preload="none" poster="assets/video/${v.id}.webp" data-src="assets/video/${v.id}.mp4"></video>${play}<div class="cap"></div></div>`).join('');
+const half=Math.ceil(V.length/2);
+const tiles=a=>a.map(v=>`<div class="tile" data-v="${v.id}"><img src="assets/video/${v.id}.webp" alt="" loading="lazy"></div>`).join('');
+const A=V.slice(0,half),B=V.slice(half);
+$('#trackA').innerHTML=tiles(A)+tiles(A); $('#trackB').innerHTML=tiles(B)+tiles(B);
+$('#dots').innerHTML=['birthday-scorpio','red-bag-tehran','pixar-love','statue-brows'].map(i=>`<span style="background-image:url(assets/video/${i}.webp)"></span>`).join('');
+
+// language init
+let saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+const nl=(navigator.language||'').slice(0,2);
+setLang(saved||(nl==='ru'?'ru':nl==='en'?'en':'fa'));
+$$('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(e=>io.observe(e));
+
+// autoplay muted previews when visible
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;
+  if(e.isIntersecting){if(v.dataset.src&&!v.src)v.src=v.dataset.src;v.play().catch(()=>{})}else v.pause()}),{threshold:.35});
+$$('.item video,[data-auto]').forEach(v=>vio.observe(v));
+
+// spotlight on cards
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')});
+
+// lightbox
+const lb=$('#lb'),lbv=$('#lbv');
+function openV(id){const v=V.find(x=>x.id===id);lbv.poster=`assets/video/${id}.webp`;lbv.src=`assets/video/${id}.mp4`;lbv.muted=false;$('#lbt').textContent=v?v.t[L]:'';lb.classList.add('on');lbv.play().catch(()=>{});document.body.style.overflow='hidden'}
+function closeV(){lb.classList.remove('on');lbv.pause();lbv.removeAttribute('src');lbv.load();document.body.style.overflow=''}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-v]');if(t&&!e.target.closest('.lb')){e.preventDefault();openV(t.dataset.v)}});
+$('#lbx').onclick=closeV;lb.onclick=e=>{if(e.target===lb)closeV()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeV()});
+</script>
+</body>
+</html>
