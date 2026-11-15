@@ -264,6 +264,37 @@ html[lang=fa] .item .cap small{font-size:13px}
 .item .play{opacity:0;transition:.3s}
 .item:hover .play{opacity:1}
 
+/* ---------- models ---------- */
+.models{padding:90px 0 20px}
+.pills{overflow:hidden;margin-top:34px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pills .row{display:flex;gap:12px;width:max-content;animation:scroll 40s linear infinite}
+.pills .row.rev{animation-direction:reverse;margin-top:12px;animation-duration:46s}
+.pills span{padding:14px 24px;border-radius:16px;border:1px solid var(--line);background:var(--card);font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px;white-space:nowrap}
+.pills span:nth-child(3n+1){border-color:var(--line2);background:rgba(139,92,246,.1)}
+/* ---------- price note ---------- */
+.pnote{margin:20px 0 6px;padding:16px 18px;border-radius:16px;background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.25)}
+.pnote b{display:block;font-family:var(--fd);font-size:24px;font-weight:800}
+.pnote span{color:var(--mut);font-weight:600;font-size:15px;display:block;margin-top:4px}
+/* ---------- telegram ---------- */
+.tgb{margin-top:22px;display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;padding:40px;border-radius:30px;border:1px solid rgba(56,189,248,.4);background:radial-gradient(ellipse at 0% 0%,rgba(56,189,248,.28),transparent 60%),radial-gradient(ellipse at 100% 100%,rgba(139,92,246,.3),transparent 60%),var(--bg2);box-shadow:0 30px 90px -40px rgba(56,189,248,.8)}
+.tgb .tgi{width:92px;height:92px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(140deg,#38bdf8,#2563eb);box-shadow:0 0 60px rgba(56,189,248,.6)}
+.tgb .tgi svg{width:50px;height:50px;fill:#fff}
+.tgb h3{font-size:clamp(24px,2.8vw,36px);margin:12px 0 8px}
+.tgb p{color:#cdd6f0}
+.btn-tg{background:linear-gradient(140deg,#38bdf8,#2563eb);color:#fff;box-shadow:0 10px 40px -10px rgba(56,189,248,.9)}
+.btn-tg:hover{transform:translateY(-2px)}
+.btn-tg svg{fill:#fff}
+/* ---------- formality feature ---------- */
+.feature{position:relative;margin-top:50px;border-radius:30px;overflow:hidden;border:1px solid var(--line2);aspect-ratio:16/8;cursor:pointer;box-shadow:0 40px 120px -40px rgba(139,92,246,.8)}
+.feature img,.feature video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.feature:hover img,.feature:hover video{transform:scale(1.03)}
+.feature::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,6,15,.92),transparent 55%)}
+.feature .ft{position:absolute;inset:auto 0 0 0;padding:36px;z-index:1;max-width:760px}
+.feature h3{font-size:clamp(26px,3.4vw,44px);margin:12px 0 8px}
+.feature p{color:#d6d1f0}
+.feature .play{z-index:1}
+.feature .play span{width:84px;height:84px}
+.lb .box.wide{height:auto;width:min(92vw,1280px);aspect-ratio:16/9}
 /* ---------- faq ---------- */
 .faq{max-width:860px;margin:44px auto 0;display:grid;gap:12px}
 .faq details{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:0 24px;transition:border-color .3s}
@@ -320,6 +351,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .occ{grid-template-columns:1fr 1fr}
   .gallery{grid-template-columns:repeat(3,1fr)}
   .socials{grid-template-columns:1fr}
+  .tgb{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .feature{aspect-ratio:4/5}
+  .feature video,.feature img{object-position:center}
   .ac-char img{height:360px}
 }
 @media (max-width:640px){
@@ -347,7 +381,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .item .cap{font-size:13px;padding:30px 10px 10px}
   .cta-box{padding:60px 20px}
   .btn{padding:14px 22px}
-  .ctas .btn{flex:1}
+  .ctas .btn{flex:1 1 40%;white-space:nowrap}
+  .ctas .btn-tg{flex-basis:100%}
   .lang button{padding:6px 9px}
 }
 </style>
@@ -388,6 +423,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="ctas rv d3">
         <a href="#contact" class="btn btn-p"><span data-t="cta_order"></span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="#academy" class="btn btn-g" data-t="cta_learn"></a>
+        <a href="https://t.me/elaahenazari" target="_blank" rel="noopener" class="btn btn-tg"><svg viewBox="0 0 24 24"><path d="M21.5 4.3L2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.3.8 1.3 1 1.9.4l2.6-2.4 4.7 3.5c.8.6 1.9.1 2.1-.8L23 5.6c.3-1.1-.6-1.8-1.5-1.3z"/></svg><span data-t="cta_tg"></span></a>
       </div>
       <div class="trust rv d3">
         <div class="dots" id="dots"></div>
@@ -419,6 +455,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="stat card rv d3"><b class="grad">24/7</b><span data-t="st4"></span></div>
   </div>
 </div>
+
+<section class="models">
+  <div class="wrap center">
+    <div class="eyebrow rv" data-t="md_eyebrow"></div>
+    <h2 class="rv d1" data-t="md_title"></h2>
+    <p class="lead rv d2" data-t="md_lead"></p>
+  </div>
+  <div class="pills" dir="ltr"><div class="row" id="pA"></div><div class="row rev" id="pB"></div></div>
+</section>
 
 <!-- SERVICES -->
 <section id="services">
@@ -486,7 +531,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="lvl" data-t="p1_lvl"></div>
         <h3 data-t="p1_t"></h3>
         <p data-t="p1_p"></p>
-        <div class="price"><b>500</b><span data-t="somoni"></span></div>
+        <div class="pnote"><b data-t="price_b"></b><span data-t="price_s"></span></div>
         <ul class="list" data-list="p1_list"></ul>
         <a href="#contact" class="btn btn-g" data-t="enroll"></a>
       </div>
@@ -495,7 +540,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="lvl" data-t="p2_lvl"></div>
         <h3 data-t="p2_t"></h3>
         <p data-t="p2_p"></p>
-        <div class="price"><b>1000</b><span data-t="somoni"></span></div>
+        <div class="pnote"><b data-t="price_b"></b><span data-t="price_s"></span></div>
         <ul class="list" data-list="p2_list"></ul>
         <a href="#contact" class="btn btn-p" data-t="enroll"></a>
       </div>
@@ -520,6 +565,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <p data-t="free_p"></p>
         <a href="https://instagram.com/ai.learning70" target="_blank" rel="noopener" class="btn btn-p" dir="ltr" style="margin-top:24px">@ai.learning70</a>
       </div>
+    </div>
+    <div class="tgb rv" id="telegram">
+      <div class="tgi"><svg viewBox="0 0 24 24"><path d="M21.5 4.3L2.9 11.4c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.5c.3.8 1.3 1 1.9.4l2.6-2.4 4.7 3.5c.8.6 1.9.1 2.1-.8L23 5.6c.3-1.1-.6-1.8-1.5-1.3zM9.6 14.6l-.4 3.6-1.3-4.3 10.3-7-8.6 7.7z"/></svg></div>
+      <div><div class="eyebrow" data-t="tl_eyebrow"></div><h3 data-t="tl_t"></h3><p data-t="tl_p"></p></div>
+      <a href="https://t.me/elaahenazari" target="_blank" rel="noopener" class="btn btn-tg" data-t="tl_btn"></a>
     </div>
   </div>
 </section>
@@ -561,10 +611,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <h2 class="rv d1" data-t="pe_title"></h2>
       <p class="lead rv d2" data-t="pe_lead"></p>
     </div>
+    <div class="feature rv" data-v="formality">
+      <video src="assets/video/formality.mp4" poster="assets/video/formality.webp" muted loop playsinline preload="none" data-auto></video>
+      <div class="play"><span><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span></div>
+      <div class="ft"><div class="eyebrow" data-t="fo_badge"></div><h3 data-t="fo_t"></h3><p data-t="fo_p"></p></div>
+    </div>
     <div class="occ">
-      <div class="card rv" data-v="birthday-scorpio"><img src="assets/video/birthday-scorpio.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc1_t"></h3><p data-t="oc1_p"></p></div></div>
-      <div class="card rv d1" data-v="pixar-love"><img src="assets/video/pixar-love.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc2_t"></h3><p data-t="oc2_p"></p></div></div>
-      <div class="card rv d2" data-v="fight-game"><img src="assets/video/fight-game.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc3_t"></h3><p data-t="oc3_p"></p></div></div>
+      <div class="card rv" data-v="bday-roadtrip"><img src="assets/video/bday-roadtrip.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc1_t"></h3><p data-t="oc1_p"></p></div></div>
+      <div class="card rv d1" data-v="father-daughter"><img src="assets/video/father-daughter.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc3_t"></h3><p data-t="oc3_p"></p></div></div>
+      <div class="card rv d2" data-v="pixar-love"><img src="assets/video/pixar-love.webp" alt="" loading="lazy"><div class="txt"><h3 data-t="oc2_t"></h3><p data-t="oc2_p"></p></div></div>
     </div>
     <div class="chips rv" data-chips="pe_chips"></div>
   </div>
@@ -650,27 +705,48 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <script>
 const V=[
+ {id:'formality',w:1,c:['personal'],t:{fa:'فرمالیته‌ی سینمایی عروس و داماد',en:'Cinematic pre-wedding film',ru:'Кинематографичная лавстори'}},
  {id:'red-bag-tehran',c:['ads'],t:{fa:'تبلیغ کیف چرم قرمز',en:'Red leather bag ad',ru:'Реклама красной сумки'}},
+ {id:'bag-heist',c:['ads','anim','funny'],t:{fa:'تبلیغ انیمیشنی کیف قرمز',en:'Animated red-bag ad',ru:'Анимационная реклама сумки'}},
+ {id:'bday-roadtrip',c:['personal'],t:{fa:'سورپرایز تولد',en:'Birthday surprise',ru:'Сюрприз на день рождения'}},
+ {id:'father-daughter',c:['personal'],t:{fa:'پدر و دختر',en:'Father & daughter',ru:'Папа и дочка'}},
  {id:'bags-colors',c:['ads'],t:{fa:'معرفی رنگ‌های کیف',en:'Bag colour lineup',ru:'Цвета сумки'}},
+ {id:'pixar-police',c:['anim','funny'],t:{fa:'انیمیشن طنز پلیس',en:'Police comedy animation',ru:'Комедия с полицией'}},
+ {id:'wire-violin',c:['viral'],t:{fa:'ساخت ویولن با سیم مسی',en:'Copper-wire violin',ru:'Скрипка из медной проволоки'}},
  {id:'orange-bag',c:['ads'],t:{fa:'پرتقال غلتان، کیف نارنجی',en:'Rolling orange, orange bag',ru:'Апельсин и оранжевая сумка'}},
+ {id:'angel-sea',c:['personal'],t:{fa:'فرشته‌ی کنار دریا',en:'Angel by the sea',ru:'Ангел у моря'}},
+ {id:'cats-dance',c:['funny'],t:{fa:'رقص گربه‌ها',en:'Dancing cats',ru:'Танцующие коты'}},
  {id:'truck-unboxing',c:['ads','viral'],t:{fa:'تبلیغ وایرال آنباکسینگ',en:'Viral unboxing ad',ru:'Вирусная распаковка'}},
+ {id:'pixar-banana',c:['anim','funny'],t:{fa:'زوج کارتونی و موز',en:'Cartoon couple & banana',ru:'Мульт-пара и банан'}},
  {id:'ananda-pixar',c:['ads','anim'],t:{fa:'تبلیغ کارتونی سه‌بعدی',en:'3D cartoon product ad',ru:'3D-мультреклама'}},
- {id:'maya-pension',c:['ads','anim'],t:{fa:'تبلیغ هالووین پانسیون',en:'Halloween pet-hotel ad',ru:'Хэллоуин-реклама отеля'}},
- {id:'pom-halloween',c:['ads','viral'],t:{fa:'هالووین پامرانین‌ها',en:'Pomeranian Halloween',ru:'Хэллоуин шпицев'}},
- {id:'cocoon-logo',c:['ads'],t:{fa:'موشن لوگو پیله',en:'COCOON logo motion',ru:'Моушн логотипа COCOON'}},
+ {id:'flying-cars',c:['viral'],t:{fa:'ماشین‌های پرنده',en:'Flying cars',ru:'Летающие машины'}},
  {id:'birthday-scorpio',c:['personal'],t:{fa:'کلیپ تولد سینمایی',en:'Cinematic birthday',ru:'Кинодень рождения'}},
+ {id:'truck-jump',c:['funny','viral'],t:{fa:'پرش کامیون',en:'Truck stunt',ru:'Трюк с грузовиком'}},
+ {id:'maya-pension',c:['ads','anim'],t:{fa:'تبلیغ هالووین پانسیون',en:'Halloween pet-hotel ad',ru:'Хэллоуин-реклама отеля'}},
+ {id:'tiny-girl',c:['anim','funny'],t:{fa:'دختر کوچولو و غول',en:'Tiny girl, giant guy',ru:'Малышка и великан'}},
  {id:'pixar-love',c:['personal','anim'],t:{fa:'قصه‌ی عاشقانه‌ی کارتونی',en:'Animated love story',ru:'Мульт-история любви'}},
- {id:'car-couple',c:['personal','anim'],t:{fa:'قصه‌ی طنز زوج',en:'Couple comedy short',ru:'Комедия о паре'}},
- {id:'fight-game',c:['personal'],t:{fa:'تریلر بازی جنگی',en:'Fighting-game trailer',ru:'Трейлер файтинга'}},
- {id:'pixar-tired',c:['anim'],t:{fa:'انیمیشن روزمرگی',en:'Everyday-life animation',ru:'Анимация будней'}},
+ {id:'pom-tuxedo',c:['funny'],t:{fa:'پامرانین‌های کت‌وشلواری',en:'Pomeranians in tuxedos',ru:'Шпицы во фраках'}},
  {id:'statue-brows',c:['viral'],t:{fa:'میکروبلیدینگ مجسمه',en:'Statue microblading',ru:'Микроблейдинг статуи'}},
+ {id:'pixar-drive',c:['anim'],t:{fa:'رانندگی کارتونی',en:'Animated road trip',ru:'Мульт-поездка'}},
+ {id:'car-couple',c:['personal','anim','funny'],t:{fa:'قصه‌ی طنز زوج',en:'Couple comedy short',ru:'Комедия о паре'}},
+ {id:'pom-halloween',c:['funny','ads'],t:{fa:'هالووین پامرانین‌ها',en:'Pomeranian Halloween',ru:'Хэллоуин шпицев'}},
+ {id:'flying-cars-2',c:['viral'],t:{fa:'پرواز بر فراز شهر',en:'Flight over the city',ru:'Полёт над городом'}},
+ {id:'fight-game',c:['personal'],t:{fa:'تریلر بازی جنگی',en:'Fighting-game trailer',ru:'Трейлер файтинга'}},
  {id:'statue-facial',c:['viral'],t:{fa:'فیشیال مجسمه‌ی طلایی',en:'Golden statue facial',ru:'Уход за золотой статуей'}},
+ {id:'pixar-tired',c:['anim','funny'],t:{fa:'انیمیشن روزمرگی',en:'Everyday-life animation',ru:'Анимация будней'}},
  {id:'somoni-statue',c:['viral'],t:{fa:'جان گرفتن مجسمه‌ی سامانی',en:'Somoni statue comes alive',ru:'Оживший памятник Сомони'}},
+ {id:'cocoon-logo',c:['ads'],t:{fa:'موشن لوگو پیله',en:'COCOON logo motion',ru:'Моушн логотипа COCOON'}},
  {id:'kelid-site',c:['edu'],t:{fa:'آموزش: طراحی سایت با هوش مصنوعی',en:'Lesson: websites with AI',ru:'Урок: сайты с AI'}},
  {id:'gemini-omni',c:['edu'],t:{fa:'آموزش: معرفی مدل جدید گوگل',en:'Lesson: Google’s new video model',ru:'Урок: новая видеомодель Google'}}
 ];
+const MODELS=['Google Flow','Veo','Seedance','Kling','Wan','Higgsfield','Sora','Runway','Hailuo','Midjourney','Nano Banana','GPT Image','Flux','Stable Diffusion','ComfyUI','ElevenLabs','Suno','Dola'];
 const T={
 fa:{
+ cta_tg:'پرامپت رایگان در تلگرام',
+ md_eyebrow:'ابزارها',md_title:'با <span class="grad">همه‌ی مدل‌های</span> هوش مصنوعی کار می‌کنم',md_lead:'برای هر ایده، ابزاری را انتخاب می‌کنم که بهترین نتیجه را بدهد؛ از ویدیو و عکس تا صدا، موسیقی و موشن. هر مدل جدیدی هم که بیاید، زود یادش می‌گیرم و به تو هم یاد می‌دهم.',
+ price_b:'مناسب‌ترین قیمت',price_s:'بهترین قیمتی که می‌توانی هوش مصنوعی را از صفر تا صد یاد بگیری. برای اطلاع از قیمت پیام بده یا تماس بگیر.',
+ tl_eyebrow:'کانال تلگرام',tl_t:'پرامپت‌های <span class="grad">رایگان</span> و آموزش‌های رایگان',tl_p:'پرامپت‌های اختصاصی خودم برای عکس و ویدیو و آموزش‌های رایگان را در کانال تلگرامم می‌گذارم. عضو شو تا هیچ‌کدام را از دست ندهی.',tl_btn:'عضویت در کانال تلگرام',
+ fo_badge:'نمونه‌ی ویژه',fo_t:'فرمالیته‌ی سینمایی عروس و داماد',fo_p:'یک فیلم کوتاه سینمایی از قصه‌ی شما؛ ساحل، جنگل، اسب‌سواری و لحظه‌های عاشقانه. با چهره‌ی واقعی خودتان، بدون هیچ تغییری. برای دیدن کامل با صدا بزن.',
  nav_academy:'آکادمی',nav_ads:'تبلیغات',nav_personal:'کلیپ شخصی',nav_work:'نمونه‌کار',nav_about:'درباره‌ی من',nav_cta:'سفارش',
  hero_eyebrow:'هنرمند هوش مصنوعی · سازنده‌ی ویدیو · مدرس',
  hero_title:'ایده‌ات را به <span class="grad">فیلم سینمایی</span> با هوش مصنوعی تبدیل می‌کنم',
@@ -682,7 +758,7 @@ fa:{
  sv_eyebrow:'خدمات',sv_title:'هر چیزی که برای <span class="grad">دیده شدن</span> لازم داری',
  sv_lead:'از یادگرفتن ساخت ویدیو با هوش مصنوعی تا تبلیغ حرفه‌ای برای برندت و کلیپ‌های خاطره‌انگیز برای عزیزانت.',
  sv1_badge:'محبوب‌ترین',sv1_t:'آکادمی ویدیوی هوش مصنوعی',sv1_p:'ساخت ویدیو و عکس با هوش مصنوعی را قدم‌به‌قدم و کاملاً عملی یاد بگیر؛ بدون برنامه‌نویسی و بدون تجربه‌ی قبلی.',sv1_m1:'آنلاین',sv1_m2:'حضوری در دوشنبه',
- sv2_t:'کلیپ تبلیغاتی',sv2_p:'ریلز و ویدیوهای تبلیغاتی سینمایی برای محصول و برندت؛ واقعی، کارتونی سه‌بعدی یا وایرال.',
+ sv2_t:'کلیپ تبلیغاتی',sv2_p:'ریلز و ویدیوهای تبلیغاتی سینمایی برای محصول و برندت؛ واقعی، کارتونی سه‌بعدی، طنز و بامزه یا وایرال.',
  sv3_t:'عکس تبلیغاتی',sv3_p:'عکس محصول با بالاترین کیفیت، بدون اینکه شکل، رنگ یا لوگوی محصولت ذره‌ای تغییر کند.',
  sv4_t:'کلیپ شخصی و مراسم',sv4_p:'عروس و داماد، فرمالیته، تولد، سالگرد و قصه‌های عاشقانه؛ با چهره‌ی خودتان، دقیق و بدون تغییر.',
  sv5_t:'ادیت پادکست',sv5_p:'تدوین و تمیزکاری صدای پادکست تا ۳۰ دقیقه، با پکیج‌هایی از اقتصادی تا حرفه‌ای.',
@@ -700,7 +776,7 @@ fa:{
  hs2_t:'آشنایی و برنامه',hs2_p:'در یک کافه در دوشنبه یا تماس آنلاین، روزهای کلاس را با هم تنظیم می‌کنیم.',
  hs3_t:'یادگیری با ساختن',hs3_p:'هر جلسه یک پروژه‌ی واقعی می‌سازی، نه فقط تئوری.',
  hs4_t:'نمونه‌کار شخصی',hs4_p:'با چند ویدیوی حرفه‌ای که خودت ساختی، دوره را تمام می‌کنی.',
- free_eyebrow:'آموزش رایگان',free_t:'هر هفته آموزش‌های کوتاه در پیج آموزشی',free_p:'ترفندها، معرفی مدل‌های جدید و آموزش‌های قدم‌به‌قدم؛ با کرکتر کارتونی خودم و به زبان ساده. روی ویدیوها بزن و ببین.',
+ free_eyebrow:'آموزش رایگان',free_t:'آموزش رایگان به صورت موشن در پیج ai.learning70',free_p:'آموزش‌های کوتاه و رایگان به شکل موشن‌گرافیک؛ ترفندها، معرفی مدل‌های جدید و آموزش‌های قدم‌به‌قدم با کرکتر کارتونی خودم و به زبان ساده. روی ویدیوها بزن و ببین.',
  ad_eyebrow:'برای برندها',ad_title:'تبلیغی که <span class="grad">لوکس</span> دیده می‌شود؛ محصولت دقیقاً همان می‌ماند',
  ad_lead:'فقط عکس محصولت را بفرست. من برایش قصه، فضا و حرکت دوربین می‌سازم و یک کلیپ یا عکس تبلیغاتی تحویل می‌دهم که در اسکرول دیده شود.',
  pr1_t:'محصول بدون تغییر',pr1_p:'شکل، رنگ، جنس، بافت و لوگوی محصولت دقیقاً حفظ می‌شود.',
@@ -714,21 +790,26 @@ fa:{
  pe_lead:'با چند عکس از خودتان، کلیپی می‌سازم که سال‌ها نگاهش کنید؛ با چهره‌ی واقعی خودتان، دقیق و بدون تغییر.',
  oc1_t:'تولد',oc1_p:'سورپرایز تولد با فضایی که فقط در رویا ممکن است.',
  oc2_t:'قصه‌ی عاشقانه',oc2_p:'قصه‌ی آشنایی و زندگی‌تان، به سبک انیمیشن‌های سینمایی.',
- oc3_t:'قهرمان قصه شو',oc3_p:'خودت یا عزیزت در نقش قهرمان فیلم یا بازی.',
- pe_chips:['عروس و داماد','فرمالیته','تولد','سالگرد ازدواج','نامزدی','هدیه برای عزیزان','انیمیشن خانوادگی','کلیپ با حیوان خانگی'],
+ oc3_t:'خاطره‌های خانوادگی',oc3_p:'لحظه‌های کوچک و شیرین خانواده، با شعر و موسیقی دلخواهتان.',
+ pe_chips:['عروس و داماد','فرمالیته','کلیپ طنز و بامزه','انیمیشن پیکساری','تولد','سالگرد ازدواج','نامزدی','هدیه برای عزیزان','انیمیشن خانوادگی','کلیپ با حیوان خانگی'],
  wk_eyebrow:'نمونه‌کارها',wk_title:'کارهایی که <span class="grad">خودم</span> ساخته‌ام',wk_lead:'همه‌ی این ویدیوها را خودم ایده‌پردازی، کارگردانی و تدوین کرده‌ام. روی هر کدام بزن تا با صدا ببینی.',
- f_all:'همه',f_ads:'تبلیغاتی',f_personal:'شخصی',f_anim:'انیمیشن',f_viral:'وایرال و خلاقانه',f_edu:'آموزشی',
+ f_all:'همه',f_ads:'تبلیغاتی',f_personal:'شخصی',f_anim:'انیمیشن',f_funny:'طنز و بامزه',f_viral:'وایرال و خلاقانه',f_edu:'آموزشی',
  ab_eyebrow:'درباره‌ی من',ab_title:'سلام، من <span class="grad">الهه نظری</span>‌ام',
  ab_p1:'مهندس مخابرات هستم و قصه‌گو از ته دل. بازیگری و پرفورمنس خوانده‌ام، فیلم کوتاه کارگردانی کرده‌ام و بیش از ۱۲ سال در تدوین، فیلم‌برداری و عکاسی کار کرده‌ام.',
- ab_p2:'امروز همه‌ی این تجربه را با هوش مصنوعی ترکیب می‌کنم و تک‌تک فریم‌ها را کارگردانی می‌کنم تا نتیجه واقعی، گرم و هم‌رنگ برند تو باشد. و عاشق این هستم که همین را به دیگران هم یاد بدهم.',
+ ab_p2:'امروز همه‌ی این تجربه را با هوش مصنوعی ترکیب می‌کنم و تک‌تک فریم‌ها را کارگردانی می‌کنم تا نتیجه واقعی، گرم و هم‌رنگ برند تو باشد. با همه‌ی مدل‌های هوش مصنوعی کار می‌کنم و عاشق این هستم که همین را به دیگران هم یاد بدهم.',
  tg1:'کارگردانی',tg2:'فیلم‌برداری',tg3:'عکاسی',tg4:'تدریس',
  fq_eyebrow:'سؤال‌های پرتکرار',fq_title:'قبل از شروع <span class="grad">بپرس</span>',
  faq:[['برای دوره باید چیزی بلد باشم؟','نه. دوره‌ی مقدماتی از صفر شروع می‌شود. کافی است گوشی یا لپ‌تاپ داشته باشی؛ برنامه‌نویسی یا تجربه‌ی قبلی لازم نیست.'],['کلاس‌ها به چه زبانی است؟','فارسی، تاجیکی و انگلیسی؛ هم آنلاین و هم حضوری در دوشنبه.'],['محصول یا چهره در تبلیغ تغییر می‌کند؟','نه. اصل کار من همین است: شکل، رنگ و لوگوی محصول و چهره‌ی آدم‌ها دقیقاً حفظ می‌شود.'],['ساخت یک کلیپ چقدر طول می‌کشد؟','بستگی به طول و سختی کلیپ دارد. قبل از شروع، زمان تحویل را دقیق با هم مشخص می‌کنیم.'],['از خارج از تاجیکستان هم سفارش می‌گیری؟','بله. با مشتری‌های بین‌المللی هم کار می‌کنم و پرداخت دلاری هم ممکن است.']],
  ct_title:'بیا با هم یک چیز <span class="grad">زیبا</span> بسازیم',ct_lead:'برای سفارش کلیپ، عکس تبلیغاتی یا ثبت‌نام در دوره، همین حالا پیام بده.',
- so1:'سفارش در اینستاگرام',so2:'تلگرام و پرامپت‌های اختصاصی',so3:'پیج آموزش هوش مصنوعی',
+ so1:'سفارش در اینستاگرام',so2:'کانال تلگرام: پرامپت و آموزش رایگان',so3:'آموزش رایگان موشن',
  ft:'ساخته‌شده با عشق و هوش مصنوعی'
 },
 en:{
+ cta_tg:'Free prompts on Telegram',
+ md_eyebrow:'Tools',md_title:'I work with <span class="grad">every major AI model</span>',md_lead:'For each idea I pick the tool that gives the best result — video, images, voice, music and motion. When a new model comes out, I learn it fast and teach it to you.',
+ price_b:'Best value',price_s:'The most affordable way to learn AI from zero to 100. Message or call me for the price.',
+ tl_eyebrow:'Telegram channel',tl_t:'<span class="grad">Free</span> prompts & free lessons',tl_p:'I share my exclusive image and video prompts and free tutorials on my Telegram channel. Join so you never miss one.',tl_btn:'Join the Telegram channel',
+ fo_badge:'Featured',fo_t:'Cinematic pre-wedding film',fo_p:'A short cinematic film of your story — beach, forest, horse riding and tender moments, with your real faces, unchanged. Tap to watch with sound.',
  nav_academy:'Academy',nav_ads:'Ads',nav_personal:'Personal',nav_work:'Work',nav_about:'About',nav_cta:'Order',
  hero_eyebrow:'AI Artist · Video Creator · Educator',
  hero_title:'I turn ideas into <span class="grad">cinematic AI films</span>',
@@ -758,7 +839,7 @@ en:{
  hs2_t:'Meet & plan',hs2_p:'Over coffee in Dushanbe or an online call, we set your class days together.',
  hs3_t:'Learn by making',hs3_p:'Every session you build a real project — not just theory.',
  hs4_t:'Your portfolio',hs4_p:'You graduate with professional videos you made yourself.',
- free_eyebrow:'Free lessons',free_t:'Short weekly lessons on my learning page',free_p:'Tips, new-model breakdowns and step-by-step tutorials — explained simply by my 3D character. Tap the videos to watch.',
+ free_eyebrow:'Free lessons',free_t:'Free motion-graphic lessons on ai.learning70',free_p:'Short, free lessons as motion graphics — tips, new-model breakdowns and step-by-step tutorials, explained simply by my 3D character. Tap the videos to watch.',
  ad_eyebrow:'For brands',ad_title:'Ads that look <span class="grad">premium</span> — your product stays exactly the same',
  ad_lead:'Just send photos of your product. I build the story, the world and the camera moves, and deliver a video or photo ad that stops the scroll.',
  pr1_t:'Product unchanged',pr1_p:'Shape, colour, material, texture and logo are kept exactly as they are.',
@@ -772,21 +853,26 @@ en:{
  pe_lead:'From a few photos of you, I create a clip you’ll watch for years — with your real faces, accurate and unchanged.',
  oc1_t:'Birthdays',oc1_p:'A birthday surprise in a world only dreams allow.',
  oc2_t:'Love stories',oc2_p:'Your story together, in the style of a feature animation.',
- oc3_t:'Be the hero',oc3_p:'You or someone you love as the star of a film or game.',
- pe_chips:['Weddings','Pre-wedding','Birthdays','Anniversaries','Engagements','Gifts for loved ones','Family animation','Clips with pets'],
+ oc3_t:'Family memories',oc3_p:'Small, sweet family moments — with your favourite poem and music.',
+ pe_chips:['Weddings','Pre-wedding','Funny clips','Pixar-style animation','Birthdays','Anniversaries','Engagements','Gifts for loved ones','Family animation','Clips with pets'],
  wk_eyebrow:'Portfolio',wk_title:'Work I’ve <span class="grad">created</span>',wk_lead:'Every video here was conceived, directed and edited by me. Tap any one to watch with sound.',
- f_all:'All',f_ads:'Ads',f_personal:'Personal',f_anim:'Animation',f_viral:'Viral & creative',f_edu:'Lessons',
+ f_all:'All',f_ads:'Ads',f_personal:'Personal',f_anim:'Animation',f_funny:'Funny',f_viral:'Viral & creative',f_edu:'Lessons',
  ab_eyebrow:'About',ab_title:'Hi, I’m <span class="grad">Elaheh Nazari</span>',
  ab_p1:'Telecom engineer by training, storyteller by heart. I studied acting and performance, directed short films, and have spent 12+ years in video editing, cinematography and photography.',
- ab_p2:'Today I bring all of it together with AI, directing every frame so the result feels real, warm and true to your brand — and I love teaching others to do the same.',
+ ab_p2:'Today I bring all of it together with AI, directing every frame so the result feels real, warm and true to your brand I work with every major AI model — and I love teaching others to do the same.',
  tg1:'Directing',tg2:'Cinematography',tg3:'Photography',tg4:'Teaching',
  fq_eyebrow:'FAQ',fq_title:'Ask <span class="grad">before</span> you start',
  faq:[['Do I need any experience for the course?','No. The beginner course starts from zero. A phone or laptop is enough — no coding or prior experience required.'],['Which languages are classes in?','Persian, Tajik and English — online or in person in Dushanbe.'],['Will my product or face change in the ad?','No. That is the core of my work: product shape, colour, logo and people’s faces are preserved exactly.'],['How long does a clip take?','It depends on length and complexity. We agree on an exact delivery date before we start.'],['Do you work with clients outside Tajikistan?','Yes. I work with international clients, and payment in US dollars is possible.']],
  ct_title:'Let’s create something <span class="grad">beautiful</span>',ct_lead:'To order a clip or ad photos, or to join a course, send me a message now.',
- so1:'Order on Instagram',so2:'Telegram & exclusive prompts',so3:'AI learning page',
+ so1:'Order on Instagram',so2:'Telegram: free prompts & lessons',so3:'Free motion lessons',
  ft:'Made with love and AI'
 },
 ru:{
+ cta_tg:'Бесплатные промпты в Telegram',
+ md_eyebrow:'Инструменты',md_title:'Работаю со <span class="grad">всеми AI-моделями</span>',md_lead:'Для каждой идеи выбираю инструмент с лучшим результатом — видео, фото, голос, музыка и моушн. Выходит новая модель — быстро осваиваю её и учу вас.',
+ price_b:'Лучшая цена',price_s:'Самый доступный способ освоить AI с нуля до профи. Напишите или позвоните, чтобы узнать цену.',
+ tl_eyebrow:'Telegram-канал',tl_t:'<span class="grad">Бесплатные</span> промпты и уроки',tl_p:'Мои эксклюзивные промпты для фото и видео и бесплатные уроки — в моём Telegram-канале. Подпишитесь, чтобы ничего не пропустить.',tl_btn:'Подписаться на канал',
+ fo_badge:'Избранное',fo_t:'Кинематографичная лавстори',fo_p:'Короткий фильм о вашей истории — пляж, лес, прогулка верхом и нежные моменты, с вашими настоящими лицами без изменений. Нажмите, чтобы смотреть со звуком.',
  nav_academy:'Академия',nav_ads:'Реклама',nav_personal:'Личное',nav_work:'Работы',nav_about:'Обо мне',nav_cta:'Заказать',
  hero_eyebrow:'AI-художник · Видеокреатор · Преподаватель',
  hero_title:'Превращаю идеи в <span class="grad">кинематографичные AI-фильмы</span>',
@@ -816,7 +902,7 @@ ru:{
  hs2_t:'Знакомство и план',hs2_p:'В кафе в Душанбе или онлайн вместе выберем дни занятий.',
  hs3_t:'Учимся, создавая',hs3_p:'На каждом занятии — реальный проект, а не только теория.',
  hs4_t:'Ваше портфолио',hs4_p:'Вы заканчиваете курс с профессиональными видео, сделанными своими руками.',
- free_eyebrow:'Бесплатно',free_t:'Короткие уроки каждую неделю',free_p:'Лайфхаки, обзоры новых моделей и пошаговые уроки — просто и понятно, с моим 3D-персонажем. Нажмите на видео.',
+ free_eyebrow:'Бесплатно',free_t:'Бесплатные моушн-уроки в ai.learning70',free_p:'Лайфхаки, обзоры новых моделей и пошаговые уроки — просто и понятно, с моим 3D-персонажем. Нажмите на видео.',
  ad_eyebrow:'Для брендов',ad_title:'Реклама, которая выглядит <span class="grad">премиально</span>, а товар остаётся прежним',
  ad_lead:'Просто пришлите фото товара. Я создам историю, атмосферу и движение камеры и сдам видео или фото, которое остановит скролл.',
  pr1_t:'Товар без изменений',pr1_p:'Форма, цвет, материал, текстура и логотип сохраняются в точности.',
@@ -830,21 +916,21 @@ ru:{
  pe_lead:'По нескольким вашим фото я создам ролик, который вы будете пересматривать годами — с вашими настоящими лицами, точно и без изменений.',
  oc1_t:'Дни рождения',oc1_p:'Сюрприз в мире, который возможен только во сне.',
  oc2_t:'История любви',oc2_p:'Ваша история в стиле полнометражной анимации.',
- oc3_t:'Станьте героем',oc3_p:'Вы или близкий человек — звезда фильма или игры.',
- pe_chips:['Свадьбы','Лавстори','Дни рождения','Годовщины','Помолвки','Подарки близким','Семейная анимация','Ролики с питомцами'],
+ oc3_t:'Семейные моменты',oc3_p:'Маленькие тёплые мгновения семьи — с любимыми стихами и музыкой.',
+ pe_chips:['Свадьбы','Лавстори','Смешные ролики','Анимация в стиле Pixar','Дни рождения','Годовщины','Помолвки','Подарки близким','Семейная анимация','Ролики с питомцами'],
  wk_eyebrow:'Портфолио',wk_title:'Работы, которые я <span class="grad">создала</span>',wk_lead:'Каждое видео здесь придумано, срежиссировано и смонтировано мной. Нажмите, чтобы смотреть со звуком.',
- f_all:'Все',f_ads:'Реклама',f_personal:'Личное',f_anim:'Анимация',f_viral:'Вирусное',f_edu:'Уроки',
+ f_all:'Все',f_ads:'Реклама',f_personal:'Личное',f_anim:'Анимация',f_funny:'Смешное',f_viral:'Вирусное',f_edu:'Уроки',
  ab_eyebrow:'Обо мне',ab_title:'Привет, я <span class="grad">Элахе Назари</span>',
  ab_p1:'По образованию — инженер связи, по призванию — рассказчица. Я изучала актёрское мастерство, снимала короткометражки и более 12 лет работаю в монтаже, операторской работе и фотографии.',
- ab_p2:'Сегодня я соединяю этот опыт с AI и режиссирую каждый кадр, чтобы результат был живым, тёплым и в стиле вашего бренда. И я с радостью учу этому других.',
+ ab_p2:'Сегодня я соединяю этот опыт с AI и режиссирую каждый кадр, чтобы результат был живым, тёплым и в стиле вашего бренда. Я работаю со всеми AI-моделями и с радостью учу этому других.',
  tg1:'Режиссура',tg2:'Операторская работа',tg3:'Фотография',tg4:'Преподавание',
  fq_eyebrow:'Вопросы',fq_title:'Спросите <span class="grad">заранее</span>',
  faq:[['Нужен ли опыт для курса?','Нет. Начальный курс — с нуля. Достаточно телефона или ноутбука, программирование не нужно.'],['На каких языках занятия?','Персидский, таджикский и английский — онлайн или офлайн в Душанбе.'],['Изменится ли товар или лицо в рекламе?','Нет. В этом суть моей работы: форма, цвет, логотип товара и лица людей сохраняются в точности.'],['Сколько времени занимает ролик?','Зависит от длины и сложности. Точный срок сдачи согласуем до начала работы.'],['Работаете с клиентами из других стран?','Да. Я работаю с международными клиентами, возможна оплата в долларах США.']],
  ct_title:'Давайте создадим что-то <span class="grad">красивое</span>',ct_lead:'Чтобы заказать ролик или фото либо записаться на курс — напишите мне прямо сейчас.',
- so1:'Заказ в Instagram',so2:'Telegram и эксклюзивные промпты',so3:'Страница об AI-обучении',
+ so1:'Заказ в Instagram',so2:'Telegram: бесплатные промпты и уроки',so3:'Бесплатные моушн-уроки',
  ft:'Сделано с любовью и AI'
 }};
-const FILT=['all','ads','personal','anim','viral','edu'];
+const FILT=['all','ads','personal','anim','funny','viral','edu'];
 let L='fa';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
@@ -869,10 +955,13 @@ function filter(f){cur=f;$$('#filters button').forEach(b=>b.classList.toggle('on
 
 // build gallery & marquee
 const play='<div class="play"><span><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg></span></div>';
-$('#gallery').innerHTML=V.map(v=>`<div class="item rv" data-v="${v.id}"><video muted loop playsinline preload="none" poster="assets/video/${v.id}.webp" data-src="assets/video/${v.id}.mp4"></video>${play}<div class="cap"></div></div>`).join('');
-const half=Math.ceil(V.length/2);
+const G=V.filter(v=>!v.w);
+$('#gallery').innerHTML=G.map(v=>`<div class="item rv" data-v="${v.id}"><video muted loop playsinline preload="none" poster="assets/video/${v.id}.webp" data-src="assets/video/${v.id}.mp4"></video>${play}<div class="cap"></div></div>`).join('');
+const half=Math.ceil(G.length/2);
 const tiles=a=>a.map(v=>`<div class="tile" data-v="${v.id}"><img src="assets/video/${v.id}.webp" alt="" loading="lazy"></div>`).join('');
-const A=V.slice(0,half),B=V.slice(half);
+const A=G.slice(0,half),B=G.slice(half);
+const pill=a=>a.map(m=>'<span>'+m+'</span>').join('');const mh=MODELS.length/2;
+$('#pA').innerHTML=pill(MODELS.slice(0,mh))+pill(MODELS.slice(0,mh));$('#pB').innerHTML=pill(MODELS.slice(mh))+pill(MODELS.slice(mh));
 $('#trackA').innerHTML=tiles(A)+tiles(A); $('#trackB').innerHTML=tiles(B)+tiles(B);
 $('#dots').innerHTML=['birthday-scorpio','red-bag-tehran','pixar-love','statue-brows'].map(i=>`<span style="background-image:url(assets/video/${i}.webp)"></span>`).join('');
 
@@ -896,7 +985,7 @@ document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.c
 
 // lightbox
 const lb=$('#lb'),lbv=$('#lbv');
-function openV(id){const v=V.find(x=>x.id===id);lbv.poster=`assets/video/${id}.webp`;lbv.src=`assets/video/${id}.mp4`;lbv.muted=false;$('#lbt').textContent=v?v.t[L]:'';lb.classList.add('on');lbv.play().catch(()=>{});document.body.style.overflow='hidden'}
+function openV(id){const v=V.find(x=>x.id===id);lbv.poster=`assets/video/${id}.webp`;lbv.src=`assets/video/${id}.mp4`;lbv.muted=false;$('#lb .box').classList.toggle('wide',!!(v&&v.w));$('#lbt').textContent=v?v.t[L]:'';lb.classList.add('on');lbv.play().catch(()=>{});document.body.style.overflow='hidden'}
 function closeV(){lb.classList.remove('on');lbv.pause();lbv.removeAttribute('src');lbv.load();document.body.style.overflow=''}
 document.addEventListener('click',e=>{const t=e.target.closest('[data-v]');if(t&&!e.target.closest('.lb')){e.preventDefault();openV(t.dataset.v)}});
 $('#lbx').onclick=closeV;lb.onclick=e=>{if(e.target===lb)closeV()};
